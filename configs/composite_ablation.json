@@ -1,0 +1,6 @@
+{
+ "base": "configs/base.json",
+ "experiment": "composite_ablation",
+ "description": "Single-term ablation and Dirichlet weight uncertainty of the Stage-6 composite inside the folds.",
+ "params": {"draws": 200}
+}

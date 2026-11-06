@@ -1,0 +1,3 @@
+{"t": 0.3, "event": "run_started", "dir": "runs/composite_ablation/20261105T054504Z_b1a76ed8"}
+{"t": 2.75, "event": "data_loaded", "samples": 633, "genes": 27949, "nsclc": 402}
+{"t": 453.87, "event": "run_finished", "status": "completed"}

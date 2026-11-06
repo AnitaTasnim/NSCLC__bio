@@ -1,0 +1,18 @@
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.42\linewidth}>{\raggedright\arraybackslash}p{0.235\linewidth}>{\raggedright\arraybackslash}p{0.235\linewidth}}
+\toprule
+Estimate & This analysis & Independent notebook \\
+\midrule
+Fixed 27-gene panel, five-fold CV (genes selected on all samples) & 0.9626 (0.9497--0.9756) & 0.9645 (0.9508--0.9764) \\
+22-gene subset (without LCE3B, USP27X, SPHAR, PRSS42, KRTAP22-1) & 0.9584 (0.9487--0.9760) & 0.9575 (0.9419--0.9712) \\
+The five omitted genes alone & 0.6872 (0.6494--0.7309) & 0.6851 (0.6433--0.7272) \\
+Selection repeated inside every training fold (nested CV) & 0.9325 (0.9131--0.9519) & 0.9430 (0.9256--0.9577) \\
+Selection and nested CV within Vumc only & 0.9399 (0.9165--0.9633) & 0.9370 (0.9106--0.9596) \\
+mRMR--IFS--SVM comparator, same outer folds & 0.9630 (0.9507--0.9752) & 0.9649 (0.9510--0.9773) \\
+Comparator minus selection pipeline (percentage points) & +3.05 (1.20 to 4.89) & +2.20 (0.88 to 3.66) \\
+Panel genes with a diagnosis effect after adjustment for site & 15/27 & 17/27 \\
+GSE68086, 22 genes, without library-size normalisation & 0.7199 (0.6120--0.8195) & 0.7347 (0.6296--0.8315) \\
+Random 27-gene panels reaching the curated panel's AUC & 0/5{,}000 (mean 0.787) & 0/5{,}000 (mean 0.780) \\
+Expression/variance-matched panels reaching it & 0/5{,}000 (mean 0.832) & 0/5{,}000 (mean 0.812) \\
+Gene sets over-represented among the panel genes (FDR $<0.05$) & 0 & 0 \\
+\bottomrule
+\end{tabular}

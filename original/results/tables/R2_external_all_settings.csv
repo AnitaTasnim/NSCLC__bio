@@ -1,0 +1,30 @@
+block,panel,setting,auc,lo,hi
+A development model,22 (development),each cohort standardised,0.7819444444444444,0.6814583333333333,0.8726851851851852
+A development model,22 (development),"discovery scaling, no alignment",0.7199074074074074,0.612037037037037,0.8194675925925924
+A development model,"24 (+USP27X, PRSS42)",each cohort standardised,0.7648148148148148,0.6597106481481483,0.8588194444444444
+B main classifier,P27 (27 genes),S0 no alignment,0.8481481481481482,0.7624537037037038,0.9236226851851852
+B main classifier,P27 (27 genes),S3 each cohort standardised,0.8592592592592593,0.7773032407407409,0.9328819444444444
+B main classifier,P27 (27 genes),S2 reference-batch ComBat-seq,0.8699074074074075,0.7921296296296296,0.936597222222222
+B main classifier,P27 (27 genes),"S1a joint ComBat-seq, re-trained",0.8731481481481482,0.7944212962962963,0.9435185185185184
+B main classifier,P27 (27 genes),S5 within-sample ranks,0.8564814814814815,0.7675810185185185,0.9282407407407408
+B main classifier,P24qc (24 genes),S0 no alignment,0.8388888888888889,0.7453703703703703,0.9166666666666669
+B main classifier,P24qc (24 genes),S3 each cohort standardised,0.8574074074074075,0.773599537037037,0.9314930555555556
+B main classifier,P24qc (24 genes),S2 reference-batch ComBat-seq,0.8777777777777779,0.7986111111111112,0.9458680555555552
+B main classifier,P24qc (24 genes),"S1a joint ComBat-seq, re-trained",0.8787037037037037,0.8004513888888889,0.950023148148148
+B main classifier,P24qc (24 genes),S5 within-sample ranks,0.8564814814814815,0.7675810185185185,0.9282407407407408
+B main classifier,P22orig (22 genes),S0 no alignment,0.85,0.7587847222222223,0.926400462962963
+B main classifier,P22orig (22 genes),S3 each cohort standardised,0.8606481481481482,0.7796180555555555,0.9319560185185184
+B main classifier,P22orig (22 genes),S2 reference-batch ComBat-seq,0.8685185185185185,0.7925810185185186,0.9384375
+B main classifier,P22orig (22 genes),"S1a joint ComBat-seq, re-trained",0.8685185185185185,0.7879282407407407,0.9379629629629628
+B main classifier,P22orig (22 genes),S5 within-sample ranks,0.8564814814814815,0.7675810185185185,0.9282407407407408
+B main classifier,P18detected (18 genes),S0 no alignment,0.8444444444444444,0.751851851851852,0.9222337962962964
+B main classifier,P18detected (18 genes),S3 each cohort standardised,0.862037037037037,0.7828472222222221,0.9338310185185184
+B main classifier,P18detected (18 genes),S2 reference-batch ComBat-seq,0.863425925925926,0.7875,0.9333333333333332
+B main classifier,P18detected (18 genes),"S1a joint ComBat-seq, re-trained",0.8675925925925926,0.7870138888888888,0.937986111111111
+B main classifier,P18detected (18 genes),S5 within-sample ranks,0.8564814814814815,0.7675810185185185,0.9282407407407408
+B main classifier,Vumc-derived (21 genes),S0 no alignment,0.8671296296296296,0.7884143518518518,0.936111111111111
+B main classifier,Vumc-derived (21 genes),S3 each cohort standardised,0.8333333333333334,0.7458101851851852,0.9101851851851852
+B main classifier,Vumc-derived (21 genes),S2 reference-batch ComBat-seq,0.7907407407407407,0.6981481481481482,0.8791898148148146
+B main classifier,Vumc-derived (21 genes),"S1a joint ComBat-seq, re-trained",0.775,0.6809953703703703,0.8662037037037038
+B main classifier,Vumc-derived (21 genes),S5 within-sample ranks,0.7555555555555555,0.6523148148148148,0.8532638888888888
+D other models,mRMR-IFS-SVM (44 genes),S0 no alignment,0.8296296296296295,0.7333217592592594,0.9101851851851852

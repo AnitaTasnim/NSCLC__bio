@@ -1,0 +1,14 @@
+\begin{tabular}{lcccc}
+\toprule
+Composite & Nested AUC & $\Delta$AUC vs default (pp) & Paired DeLong & Jaccard with default fold panels \\
+\midrule
+Default weights & 0.9370 & -- & -- & 1.000 \\
+Without significance term & 0.9362 & $-$0.08 & $p = 0.740$ & 0.921 \\
+Without effect-size term & 0.9394 & +0.24 & $p = 0.604$ & 0.697 \\
+Without LASSO term & 0.9360 & $-$0.10 & $p = 0.867$ & 0.642 \\
+Without bootstrap-stability term & 0.9401 & +0.31 & $p = 0.473$ & 0.678 \\
+Without feature-importance term & 0.9325 & $-$0.45 & $p = 0.132$ & 0.909 \\
+Equal weights & 0.9394 & +0.23 & $p = 0.535$ & 0.788 \\
+Random weights, 200 draws: median (5th--95th pct.) & 0.9391 (0.9315--0.9455) & & & 0.697 \\
+\bottomrule
+\end{tabular}

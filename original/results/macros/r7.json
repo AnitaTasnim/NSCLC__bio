@@ -1,0 +1,19 @@
+{
+ "GseaNsig": "709",
+ "GseaNgenes": "14{,}032",
+ "GseaNmin": "179",
+ "GseaNtested": "4{,}278",
+ "GseaHallmarkNtested": "50",
+ "GseaReactomeNtested": "867",
+ "GseaGoBpNtested": "3{,}361",
+ "GseaHallmarkNsig": "21",
+ "GseaReactomeNsig": "252",
+ "GseaGoBpNsig": "436",
+ "GseaHallUp": "coagulation; heme metabolism; myogenesis; apical junction",
+ "GseaHallDown": "myc targets v1; myc targets v2; allograft rejection; unfolded protein response",
+ "GseaTopUp": "response to elevated platelet cytosolic ca2; platelet activation signaling and aggregation; platelet aggregation",
+ "GseaTopDown": "eukaryotic translation elongation; eukaryotic translation initiation; selenoamino acid metabolism",
+ "GseaNup": "156",
+ "GseaNdown": "553",
+ "OraNsig": "0"
+}

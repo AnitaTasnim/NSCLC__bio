@@ -1,0 +1,6 @@
+{
+ "VumcNestedAUC": "0.9399",
+ "VumcNestedCI": "0.9165--0.9633",
+ "VumcNestedFoldMean": "0.9386",
+ "VumcNestedFoldSD": "0.0263"
+}

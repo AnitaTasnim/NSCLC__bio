@@ -1,0 +1,10 @@
+{
+ "source": "datamicroarray::gordon",
+ "task": "mesothelioma vs adenocarcinoma",
+ "n": 181,
+ "positives": 31,
+ "negatives": 150,
+ "features": 12412,
+ "floored_values": 529668,
+ "scale": "linear intensities"
+}

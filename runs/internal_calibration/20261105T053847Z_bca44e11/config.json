@@ -1,0 +1,13 @@
+{
+ "data": {
+  "discovery_expr": "data/inputs/GSE89843_expr.parquet",
+  "discovery_meta": "data/inputs/GSE89843_meta.csv"
+ },
+ "description": "Calibration and operating characteristics of the nested models with training-derived thresholds.",
+ "engine_config": "engine/config.json",
+ "experiment": "internal_calibration",
+ "n_jobs": 2,
+ "out_root": "runs",
+ "params": {},
+ "seed": 42
+}

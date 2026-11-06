@@ -1,0 +1,6 @@
+{
+ "base": "configs/base.json",
+ "experiment": "tuning",
+ "description": "XGBoost tuned inside each outer training fold versus the fixed settings.",
+ "params": {"grid": {"n_estimators": [100, 300, 600], "max_depth": [2, 4, 6], "learning_rate": [0.03, 0.1]}}
+}

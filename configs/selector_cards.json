@@ -1,0 +1,6 @@
+{
+ "base": "configs/base.json",
+ "experiment": "selector_cards",
+ "description": "Technical-reliability card (site, within-site, transfer, coverage, locked external) for every selector.",
+ "params": {"methods": ["six_stage", "mw_topk", "l1_topk", "stability", "mrmr_ifs_svm"], "k": 27, "B": 500}
+}

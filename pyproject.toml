@@ -1,0 +1,16 @@
+[project]
+name = "pmtrd"
+version = "2.0.0"
+description = "Predictive-Molecular-Technical Reliability Decomposition experiments for omics biomarker panels"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+
+[project.scripts]
+pmtrd = "pmtrd.cli:main"
+
+[tool.setuptools]
+packages = ["pmtrd", "pmtrd.metrics", "pmtrd.experiments"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::FutureWarning", "ignore::UserWarning"]

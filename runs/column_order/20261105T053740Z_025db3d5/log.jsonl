@@ -1,0 +1,3 @@
+{"t": 6.98, "event": "run_started", "dir": "runs/column_order/20261105T053740Z_025db3d5"}
+{"t": 11.07, "event": "data_loaded", "samples": 633, "genes": 27949, "nsclc": 402}
+{"t": 63.82, "event": "run_finished", "status": "completed"}

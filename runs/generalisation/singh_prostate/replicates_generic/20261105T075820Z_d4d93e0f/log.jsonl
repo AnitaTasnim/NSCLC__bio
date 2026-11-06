@@ -1,0 +1,55 @@
+{"t": 0.3, "event": "run_started", "dir": "runs/generalisation/singh_prostate/replicates_generic/20261105T075820Z_d4d93e0f"}
+{"t": 2.54, "event": "data_loaded", "samples": 633, "genes": 27949, "nsclc": 402}
+{"t": 3.41, "event": "dataset", "source": "datamicroarray::singh", "task": "Tumor vs Normal", "n": 102, "positives": 52, "negatives": 50, "features": 12206, "floored_values": 429950, "scale": "linear intensities"}
+{"t": 35.54, "event": "unit", "fold": 1, "rep": 0, "six_stage": 0.991, "mw_topk": 0.991, "l1_topk": 1.0, "stability": 0.991, "mrmr_ifs_svm": 0.991, "random": 1.0, "fixed": 1.0}
+{"t": 50.45, "event": "unit", "fold": 1, "rep": 1, "six_stage": 0.945, "mw_topk": 0.9, "l1_topk": 0.936, "stability": 0.973, "mrmr_ifs_svm": 0.991, "random": 0.864, "fixed": 0.982}
+{"t": 64.58, "event": "unit", "fold": 1, "rep": 2, "six_stage": 0.991, "mw_topk": 0.945, "l1_topk": 0.964, "stability": 0.991, "mrmr_ifs_svm": 0.927, "random": 0.945, "fixed": 1.0}
+{"t": 80.17, "event": "unit", "fold": 1, "rep": 3, "six_stage": 0.991, "mw_topk": 0.945, "l1_topk": 0.964, "stability": 0.964, "mrmr_ifs_svm": 0.982, "random": 0.964, "fixed": 0.991}
+{"t": 93.97, "event": "unit", "fold": 1, "rep": 4, "six_stage": 1.0, "mw_topk": 1.0, "l1_topk": 1.0, "stability": 1.0, "mrmr_ifs_svm": 0.982, "random": 0.964, "fixed": 1.0}
+{"t": 107.05, "event": "unit", "fold": 1, "rep": 5, "six_stage": 0.982, "mw_topk": 1.0, "l1_topk": 1.0, "stability": 1.0, "mrmr_ifs_svm": 1.0, "random": 0.936, "fixed": 0.991}
+{"t": 124.17, "event": "unit", "fold": 1, "rep": 6, "six_stage": 1.0, "mw_topk": 0.964, "l1_topk": 0.945, "stability": 1.0, "mrmr_ifs_svm": 1.0, "random": 0.818, "fixed": 1.0}
+{"t": 140.29, "event": "unit", "fold": 1, "rep": 7, "six_stage": 0.991, "mw_topk": 0.982, "l1_topk": 1.0, "stability": 0.991, "mrmr_ifs_svm": 0.991, "random": 0.927, "fixed": 0.991}
+{"t": 154.48, "event": "unit", "fold": 1, "rep": 8, "six_stage": 1.0, "mw_topk": 0.982, "l1_topk": 1.0, "stability": 0.973, "mrmr_ifs_svm": 0.991, "random": 0.9, "fixed": 0.991}
+{"t": 173.35, "event": "unit", "fold": 1, "rep": 9, "six_stage": 0.955, "mw_topk": 0.973, "l1_topk": 0.964, "stability": 0.982, "mrmr_ifs_svm": 0.991, "random": 0.909, "fixed": 1.0}
+{"t": 188.83, "event": "unit", "fold": 2, "rep": 0, "six_stage": 0.964, "mw_topk": 0.982, "l1_topk": 0.991, "stability": 0.982, "mrmr_ifs_svm": 0.873, "random": 0.873, "fixed": 0.982}
+{"t": 204.18, "event": "unit", "fold": 2, "rep": 1, "six_stage": 0.955, "mw_topk": 0.964, "l1_topk": 0.955, "stability": 0.973, "mrmr_ifs_svm": 0.964, "random": 0.955, "fixed": 0.982}
+{"t": 220.01, "event": "unit", "fold": 2, "rep": 2, "six_stage": 0.964, "mw_topk": 0.973, "l1_topk": 0.973, "stability": 0.973, "mrmr_ifs_svm": 0.891, "random": 0.991, "fixed": 0.982}
+{"t": 235.67, "event": "unit", "fold": 2, "rep": 3, "six_stage": 0.973, "mw_topk": 0.964, "l1_topk": 0.945, "stability": 0.973, "mrmr_ifs_svm": 0.964, "random": 0.982, "fixed": 0.991}
+{"t": 250.47, "event": "unit", "fold": 2, "rep": 4, "six_stage": 0.964, "mw_topk": 0.936, "l1_topk": 0.945, "stability": 0.964, "mrmr_ifs_svm": 0.936, "random": 0.891, "fixed": 0.982}
+{"t": 265.09, "event": "unit", "fold": 2, "rep": 5, "six_stage": 0.982, "mw_topk": 0.936, "l1_topk": 0.964, "stability": 0.973, "mrmr_ifs_svm": 0.936, "random": 0.964, "fixed": 0.982}
+{"t": 280.77, "event": "unit", "fold": 2, "rep": 6, "six_stage": 0.936, "mw_topk": 0.936, "l1_topk": 0.973, "stability": 0.945, "mrmr_ifs_svm": 0.982, "random": 0.818, "fixed": 0.964}
+{"t": 295.72, "event": "unit", "fold": 2, "rep": 7, "six_stage": 0.982, "mw_topk": 0.964, "l1_topk": 0.955, "stability": 0.964, "mrmr_ifs_svm": 0.936, "random": 0.982, "fixed": 0.982}
+{"t": 310.19, "event": "unit", "fold": 2, "rep": 8, "six_stage": 0.909, "mw_topk": 0.964, "l1_topk": 0.945, "stability": 0.955, "mrmr_ifs_svm": 0.909, "random": 0.918, "fixed": 0.955}
+{"t": 325.79, "event": "unit", "fold": 2, "rep": 9, "six_stage": 0.945, "mw_topk": 0.964, "l1_topk": 0.955, "stability": 0.964, "mrmr_ifs_svm": 0.727, "random": 0.9, "fixed": 0.982}
+{"t": 340.79, "event": "unit", "fold": 3, "rep": 0, "six_stage": 0.73, "mw_topk": 0.85, "l1_topk": 0.82, "stability": 0.86, "mrmr_ifs_svm": 0.89, "random": 0.71, "fixed": 0.72}
+{"t": 355.51, "event": "unit", "fold": 3, "rep": 1, "six_stage": 0.8, "mw_topk": 0.88, "l1_topk": 0.88, "stability": 0.86, "mrmr_ifs_svm": 0.86, "random": 0.63, "fixed": 0.7}
+{"t": 369.16, "event": "unit", "fold": 3, "rep": 2, "six_stage": 0.88, "mw_topk": 0.83, "l1_topk": 0.81, "stability": 0.84, "mrmr_ifs_svm": 0.84, "random": 0.63, "fixed": 0.64}
+{"t": 382.42, "event": "unit", "fold": 3, "rep": 3, "six_stage": 0.78, "mw_topk": 0.83, "l1_topk": 0.83, "stability": 0.9, "mrmr_ifs_svm": 0.82, "random": 0.79, "fixed": 0.68}
+{"t": 400.25, "event": "unit", "fold": 3, "rep": 4, "six_stage": 0.76, "mw_topk": 0.81, "l1_topk": 0.84, "stability": 0.84, "mrmr_ifs_svm": 0.8, "random": 0.77, "fixed": 0.68}
+{"t": 414.36, "event": "unit", "fold": 3, "rep": 5, "six_stage": 0.88, "mw_topk": 0.78, "l1_topk": 0.87, "stability": 0.84, "mrmr_ifs_svm": 0.84, "random": 0.82, "fixed": 0.73}
+{"t": 429.28, "event": "unit", "fold": 3, "rep": 6, "six_stage": 0.93, "mw_topk": 0.81, "l1_topk": 0.89, "stability": 0.9, "mrmr_ifs_svm": 0.8, "random": 0.77, "fixed": 0.72}
+{"t": 443.67, "event": "unit", "fold": 3, "rep": 7, "six_stage": 0.77, "mw_topk": 0.81, "l1_topk": 0.88, "stability": 0.89, "mrmr_ifs_svm": 0.79, "random": 0.79, "fixed": 0.71}
+{"t": 459.36, "event": "unit", "fold": 3, "rep": 8, "six_stage": 0.77, "mw_topk": 0.81, "l1_topk": 0.85, "stability": 0.85, "mrmr_ifs_svm": 0.81, "random": 0.8, "fixed": 0.71}
+{"t": 473.59, "event": "unit", "fold": 3, "rep": 9, "six_stage": 0.87, "mw_topk": 0.84, "l1_topk": 0.83, "stability": 0.91, "mrmr_ifs_svm": 0.84, "random": 0.72, "fixed": 0.77}
+{"t": 488.37, "event": "unit", "fold": 4, "rep": 0, "six_stage": 1.0, "mw_topk": 1.0, "l1_topk": 0.98, "stability": 1.0, "mrmr_ifs_svm": 1.0, "random": 0.99, "fixed": 0.96}
+{"t": 502.61, "event": "unit", "fold": 4, "rep": 1, "six_stage": 1.0, "mw_topk": 1.0, "l1_topk": 1.0, "stability": 1.0, "mrmr_ifs_svm": 1.0, "random": 1.0, "fixed": 0.97}
+{"t": 517.91, "event": "unit", "fold": 4, "rep": 2, "six_stage": 0.99, "mw_topk": 1.0, "l1_topk": 1.0, "stability": 1.0, "mrmr_ifs_svm": 0.98, "random": 0.91, "fixed": 0.95}
+{"t": 533.7, "event": "unit", "fold": 4, "rep": 3, "six_stage": 0.97, "mw_topk": 0.99, "l1_topk": 0.99, "stability": 0.99, "mrmr_ifs_svm": 1.0, "random": 1.0, "fixed": 0.97}
+{"t": 547.06, "event": "unit", "fold": 4, "rep": 4, "six_stage": 0.97, "mw_topk": 0.97, "l1_topk": 0.97, "stability": 1.0, "mrmr_ifs_svm": 1.0, "random": 0.99, "fixed": 0.97}
+{"t": 560.99, "event": "unit", "fold": 4, "rep": 5, "six_stage": 0.97, "mw_topk": 0.96, "l1_topk": 0.97, "stability": 0.98, "mrmr_ifs_svm": 1.0, "random": 0.98, "fixed": 0.97}
+{"t": 574.82, "event": "unit", "fold": 4, "rep": 6, "six_stage": 0.93, "mw_topk": 1.0, "l1_topk": 0.99, "stability": 1.0, "mrmr_ifs_svm": 0.99, "random": 0.97, "fixed": 0.96}
+{"t": 590.72, "event": "unit", "fold": 4, "rep": 7, "six_stage": 1.0, "mw_topk": 0.97, "l1_topk": 0.97, "stability": 0.98, "mrmr_ifs_svm": 0.97, "random": 1.0, "fixed": 0.96}
+{"t": 606.75, "event": "unit", "fold": 4, "rep": 8, "six_stage": 0.99, "mw_topk": 0.99, "l1_topk": 0.99, "stability": 0.99, "mrmr_ifs_svm": 0.99, "random": 0.96, "fixed": 0.97}
+{"t": 622.81, "event": "unit", "fold": 4, "rep": 9, "six_stage": 0.97, "mw_topk": 1.0, "l1_topk": 0.98, "stability": 0.97, "mrmr_ifs_svm": 1.0, "random": 1.0, "fixed": 0.96}
+{"t": 638.08, "event": "unit", "fold": 5, "rep": 0, "six_stage": 0.98, "mw_topk": 0.97, "l1_topk": 1.0, "stability": 1.0, "mrmr_ifs_svm": 0.93, "random": 0.87, "fixed": 0.94}
+{"t": 653.76, "event": "unit", "fold": 5, "rep": 1, "six_stage": 1.0, "mw_topk": 0.98, "l1_topk": 0.98, "stability": 0.99, "mrmr_ifs_svm": 0.96, "random": 0.91, "fixed": 1.0}
+{"t": 670.41, "event": "unit", "fold": 5, "rep": 2, "six_stage": 0.99, "mw_topk": 0.99, "l1_topk": 1.0, "stability": 0.99, "mrmr_ifs_svm": 0.98, "random": 0.65, "fixed": 1.0}
+{"t": 686.66, "event": "unit", "fold": 5, "rep": 3, "six_stage": 0.95, "mw_topk": 1.0, "l1_topk": 0.98, "stability": 1.0, "mrmr_ifs_svm": 0.92, "random": 0.97, "fixed": 0.97}
+{"t": 702.64, "event": "unit", "fold": 5, "rep": 4, "six_stage": 0.98, "mw_topk": 1.0, "l1_topk": 1.0, "stability": 1.0, "mrmr_ifs_svm": 0.95, "random": 0.87, "fixed": 1.0}
+{"t": 718.5, "event": "unit", "fold": 5, "rep": 5, "six_stage": 1.0, "mw_topk": 0.95, "l1_topk": 0.96, "stability": 0.99, "mrmr_ifs_svm": 0.98, "random": 0.83, "fixed": 0.96}
+{"t": 735.36, "event": "unit", "fold": 5, "rep": 6, "six_stage": 0.98, "mw_topk": 0.98, "l1_topk": 0.98, "stability": 0.99, "mrmr_ifs_svm": 0.87, "random": 1.0, "fixed": 0.96}
+{"t": 751.96, "event": "unit", "fold": 5, "rep": 7, "six_stage": 0.93, "mw_topk": 0.95, "l1_topk": 0.98, "stability": 0.99, "mrmr_ifs_svm": 0.94, "random": 0.88, "fixed": 0.92}
+{"t": 767.15, "event": "unit", "fold": 5, "rep": 8, "six_stage": 0.95, "mw_topk": 0.98, "l1_topk": 1.0, "stability": 1.0, "mrmr_ifs_svm": 0.83, "random": 0.9, "fixed": 0.95}
+{"t": 782.2, "event": "unit", "fold": 5, "rep": 9, "six_stage": 0.89, "mw_topk": 0.95, "l1_topk": 0.98, "stability": 1.0, "mrmr_ifs_svm": 0.91, "random": 0.91, "fixed": 0.94}
+{"t": 783.16, "event": "summary", "identity_share": {"share": 0.6676998833461703, "lo": 0.6069851555467998, "hi": 0.7208510630500162}}
+{"t": 783.55, "event": "run_finished", "status": "completed"}

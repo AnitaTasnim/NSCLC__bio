@@ -1,0 +1,16 @@
+{
+ "AblFullAUC": "0.9626",
+ "AblTopFiveDelta": "$-$2.75",
+ "AblTopFiveCI": "$-$4.33 to $-$1.17",
+ "AblTopFiveP": "$p < 0.001$",
+ "AblNovelDelta": "+0.16",
+ "AblNovelCI": "$-$0.30 to +0.61",
+ "AblNovelP": "$p = 0.504$",
+ "AblWorstGene": "HSD17B3",
+ "AblWorstDelta": "$-$0.48",
+ "AblPtwoDelta": "$-$0.01",
+ "AblSingleMin": "$-$0.48",
+ "AblSingleMax": "+0.16",
+ "AblSingleNsig": "1",
+ "AblNovelGenes": "LCE3B, SPHAR, NTNG2, TMEM39B, OR52B6, PRSS42, KRTAP22-1"
+}

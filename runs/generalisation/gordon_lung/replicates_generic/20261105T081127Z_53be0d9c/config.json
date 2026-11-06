@@ -1,0 +1,33 @@
+{
+ "data": {
+  "discovery_expr": "data/inputs/GSE89843_expr.parquet",
+  "discovery_meta": "data/inputs/GSE89843_meta.csv"
+ },
+ "description": "Replicate study on Gordon et al. 2002: mesothelioma vs lung adenocarcinoma, Affymetrix.",
+ "engine_config": "engine/config.json",
+ "experiment": "replicates_generic",
+ "n_jobs": 2,
+ "out_root": "runs/generalisation/gordon_lung",
+ "params": {
+  "B": 500,
+  "R": 10,
+  "dataset": {
+   "floor": 1.0,
+   "loader": "datamicroarray",
+   "name": "gordon",
+   "path": "data/external/gordon.RData",
+   "positive": "mesothelioma"
+  },
+  "frac": 0.8,
+  "k": 27,
+  "methods": [
+   "six_stage",
+   "mw_topk",
+   "l1_topk",
+   "stability",
+   "mrmr_ifs_svm",
+   "random"
+  ]
+ },
+ "seed": 42
+}

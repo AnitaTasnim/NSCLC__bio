@@ -1,0 +1,19 @@
+{"t": 0.34, "event": "run_started", "dir": "runs/internal_calibration/20261105T053847Z_bca44e11"}
+{"t": 2.29, "event": "data_loaded", "samples": 633, "genes": 27949, "nsclc": 402}
+{"t": 7.83, "event": "fold", "version": "fixed_panel", "fold": 1, "auc": 0.9753, "thr": 0.618}
+{"t": 10.79, "event": "fold", "version": "fixed_panel", "fold": 2, "auc": 0.9544, "thr": 0.587}
+{"t": 13.81, "event": "fold", "version": "fixed_panel", "fold": 3, "auc": 0.9745, "thr": 0.762}
+{"t": 16.24, "event": "fold", "version": "fixed_panel", "fold": 4, "auc": 0.9883, "thr": 0.583}
+{"t": 19.02, "event": "fold", "version": "fixed_panel", "fold": 5, "auc": 0.922, "thr": 0.781}
+{"t": 30.64, "event": "fold", "version": "four_term", "fold": 1, "auc": 0.9436, "thr": 0.673}
+{"t": 33.65, "event": "fold", "version": "four_term", "fold": 2, "auc": 0.9342, "thr": 0.53}
+{"t": 36.68, "event": "fold", "version": "four_term", "fold": 3, "auc": 0.9471, "thr": 0.697}
+{"t": 39.57, "event": "fold", "version": "four_term", "fold": 4, "auc": 0.9446, "thr": 0.518}
+{"t": 42.43, "event": "fold", "version": "four_term", "fold": 5, "auc": 0.9003, "thr": 0.849}
+{"t": 42.43, "event": "reproduction_check", "max_abs_diff_vs_paper": 1.1102230246251565e-16}
+{"t": 53.2, "event": "fold", "version": "five_term", "fold": 1, "auc": 0.9439, "thr": 0.587}
+{"t": 56.16, "event": "fold", "version": "five_term", "fold": 2, "auc": 0.9351, "thr": 0.525}
+{"t": 59.06, "event": "fold", "version": "five_term", "fold": 3, "auc": 0.9538, "thr": 0.835}
+{"t": 61.71, "event": "fold", "version": "five_term", "fold": 4, "auc": 0.9465, "thr": 0.628}
+{"t": 64.75, "event": "fold", "version": "five_term", "fold": 5, "auc": 0.906, "thr": 0.453}
+{"t": 73.36, "event": "run_finished", "status": "completed"}

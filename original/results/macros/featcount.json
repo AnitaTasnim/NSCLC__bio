@@ -1,0 +1,12 @@
+{
+ "FcTenAUC": "0.8885",
+ "FcPanelAUC": "0.9626",
+ "FcFiftyAUC": "0.9582",
+ "FcHundredAUC": "0.9667",
+ "FcFiveHundredAUC": "0.9762",
+ "FcAllAUC": "0.9725",
+ "FcAllN": "27{,}949",
+ "FcBestLabel": "500",
+ "FcBestAUC": "0.9762",
+ "FcPanelPctOfBest": "98.6"
+}

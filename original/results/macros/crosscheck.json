@@ -1,0 +1,19 @@
+{
+ "XcFixedTheirs": "0.9645",
+ "XcNestedTheirs": "0.9430",
+ "XcVumcNestedTheirs": "0.9370",
+ "XcShengTheirs": "0.9649",
+ "XcShengDeltaTheirs": "2.20",
+ "XcRandTheirs": "0/5{,}000 (mean 0.780)",
+ "XcMatchTheirs": "0/5{,}000 (mean 0.812)",
+ "XcExtNoNormTheirs": "0.7347",
+ "XcSiteAdjTheirs": "17",
+ "XcOraTheirs": "0",
+ "XcShengDeltaOurs": "3.05",
+ "XcRandExceedTheirs": "0",
+ "XcRandNTheirs": "5{,}000",
+ "XcRandMeanTheirs": "0.780",
+ "XcMatchExceedTheirs": "0",
+ "XcMatchNTheirs": "5{,}000",
+ "XcMatchMeanTheirs": "0.812"
+}

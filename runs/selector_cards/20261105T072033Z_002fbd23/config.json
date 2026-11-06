@@ -1,0 +1,23 @@
+{
+ "data": {
+  "discovery_expr": "data/inputs/GSE89843_expr.parquet",
+  "discovery_meta": "data/inputs/GSE89843_meta.csv"
+ },
+ "description": "Technical-reliability card (site, within-site, transfer, coverage, locked external) for every selector.",
+ "engine_config": "engine/config.json",
+ "experiment": "selector_cards",
+ "n_jobs": 2,
+ "out_root": "runs",
+ "params": {
+  "B": 500,
+  "k": 27,
+  "methods": [
+   "six_stage",
+   "mw_topk",
+   "l1_topk",
+   "stability",
+   "mrmr_ifs_svm"
+  ]
+ },
+ "seed": 42
+}

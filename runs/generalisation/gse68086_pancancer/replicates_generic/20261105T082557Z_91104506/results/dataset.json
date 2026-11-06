@@ -1,0 +1,10 @@
+{
+ "source": "GEO GSE68086",
+ "task": "cancer (six tumour types) vs healthy donors",
+ "n": 280,
+ "positives": 226,
+ "negatives": 54,
+ "features": 13493,
+ "excluded": 5,
+ "scale": "read counts"
+}

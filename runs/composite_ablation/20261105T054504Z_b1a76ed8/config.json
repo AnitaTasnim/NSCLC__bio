@@ -1,0 +1,15 @@
+{
+ "data": {
+  "discovery_expr": "data/inputs/GSE89843_expr.parquet",
+  "discovery_meta": "data/inputs/GSE89843_meta.csv"
+ },
+ "description": "Single-term ablation and Dirichlet weight uncertainty of the Stage-6 composite inside the folds.",
+ "engine_config": "engine/config.json",
+ "experiment": "composite_ablation",
+ "n_jobs": 2,
+ "out_root": "runs",
+ "params": {
+  "draws": 200
+ },
+ "seed": 42
+}

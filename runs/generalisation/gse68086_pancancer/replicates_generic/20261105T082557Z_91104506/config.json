@@ -1,0 +1,31 @@
+{
+ "data": {
+  "discovery_expr": "data/inputs/GSE89843_expr.parquet",
+  "discovery_meta": "data/inputs/GSE89843_meta.csv"
+ },
+ "description": "Replicate study on GSE68086: platelet RNA-seq, six tumour types vs healthy donors.",
+ "engine_config": "engine/config.json",
+ "experiment": "replicates_generic",
+ "n_jobs": 2,
+ "out_root": "runs/generalisation/gse68086_pancancer",
+ "params": {
+  "B": 500,
+  "R": 10,
+  "dataset": {
+   "loader": "gse68086",
+   "min_frac": 0.1,
+   "path": "data/external/GSE68086_TEP_data_matrix.txt.gz"
+  },
+  "frac": 0.8,
+  "k": 27,
+  "methods": [
+   "six_stage",
+   "mw_topk",
+   "l1_topk",
+   "stability",
+   "mrmr_ifs_svm",
+   "random"
+  ]
+ },
+ "seed": 42
+}

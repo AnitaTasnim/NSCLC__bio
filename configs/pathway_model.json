@@ -1,0 +1,8 @@
+{
+ "base": "configs/base.json",
+ "experiment": "pathway_model",
+ "description": "Reliability-guided pathway model (Hallmark + Reactome single-sample scores), evaluated with PMTRD.",
+ "params": {"libraries": ["data/inputs/genesets/MSigDB_Hallmark_v7.5.1.gmt", "data/inputs/genesets/Reactome_MSigDB_v7.5.1.gmt"],
+            "k": 27, "min_size": 15, "max_size": 500, "R": 10, "frac": 0.8,
+            "missing_fractions": [0.1, 0.2, 0.3, 0.5], "missing_draws": 50}
+}

@@ -1,0 +1,10 @@
+{
+ "description": "Shared settings: data, seed and the engine configuration used for the paper.",
+ "experiment": "base",
+ "seed": 42,
+ "n_jobs": 2,
+ "engine_config": "engine/config.json",
+ "data": {"discovery_expr": "data/inputs/GSE89843_expr.parquet",
+          "discovery_meta": "data/inputs/GSE89843_meta.csv"},
+ "out_root": "runs"
+}

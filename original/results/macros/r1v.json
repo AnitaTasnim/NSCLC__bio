@@ -1,0 +1,22 @@
+{
+ "VumcPanelN": "24",
+ "VumcPanelOverlap": "6",
+ "VumcPanelOverlapGenes": "HOXC12, HSD17B3, LCE3B, P2RY10, TMEM39B, USP27X",
+ "VumcPanelJaccard": "0.133",
+ "VumcPanelHyperP": "$p = 6.0\\times10^{-14}$",
+ "VumcPanelExpOverlap": "0.02",
+ "VumcPanelCorrPct": "67",
+ "VumcSubVerdict": "so the turnover is not explained by correlated substitution alone",
+ "SiteVerdict": "These results substantially weaken the strongest form of the confounding concern",
+ "SiteConclusion": "supporting genuine biological signal rather than a site-detection artefact",
+ "VumcPanelCorrNullPct": "80",
+ "VumcTransferAUC": "0.7863",
+ "VumcTransferCI": "0.7088--0.8638",
+ "VumcTransferOrigAUC": "0.7869",
+ "VumcTransferOrigCI": "0.7074--0.8664",
+ "VumcTransferN": "257",
+ "VumcTransferNsclc": "223",
+ "VumcTransferHealthy": "34",
+ "VumcPanelFixedAUC": "0.9640",
+ "VumcPanelFixedCI": "0.9459--0.9820"
+}

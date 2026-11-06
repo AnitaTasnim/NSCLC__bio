@@ -1,0 +1,14 @@
+\footnotesize
+\begin{tabular}{llllll}
+\toprule
+ & Alignment & Unlabelled new-cohort data & Model retrained & Single new sample & AUC (95\% CI) \\
+\midrule
+S0 & None (frozen model) & No & No & Yes & 0.8269 (0.7241--0.9120) \\
+S1a & Joint ComBat-seq + retrained model & Yes & Yes & No & 0.8505 (0.7657--0.9264) \\
+S1b & Joint ComBat-seq, frozen model & Yes & No & No & 0.8690 (0.7907--0.9394) \\
+S2 & Reference-batch ComBat-seq, frozen model & Yes & No & No & 0.8491 (0.7648--0.9227) \\
+S3 & Reference location/scale, frozen model & Yes & No & No & 0.8574 (0.7722--0.9324) \\
+S4 & Add-on location/scale (k calibration samples) & Yes & No & Yes & 0.8553$^{a}$ \\
+S5 & Single-sample rank model, no alignment & No & Yes & Yes & 0.8565 (0.7676--0.9282) \\
+\bottomrule
+\end{tabular}

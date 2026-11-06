@@ -1,0 +1,6 @@
+{
+ "base": "configs/base.json",
+ "experiment": "internal_calibration",
+ "description": "Calibration and operating characteristics of the nested models with training-derived thresholds.",
+ "params": {}
+}

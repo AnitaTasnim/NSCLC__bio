@@ -1,0 +1,10 @@
+{
+ "source": "datamicroarray::singh",
+ "task": "Tumor vs Normal",
+ "n": 102,
+ "positives": 52,
+ "negatives": 50,
+ "features": 12206,
+ "floored_values": 429950,
+ "scale": "linear intensities"
+}

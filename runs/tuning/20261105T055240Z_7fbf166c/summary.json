@@ -1,0 +1,41 @@
+{
+ "tuned_auc": 0.9293036979604143,
+ "tuned_ci": [
+  0.9095892933992337,
+  0.949018102521595
+ ],
+ "fixed_auc": 0.9324804548685146,
+ "delta_tuned_minus_fixed": -0.0031767569081002645,
+ "delta_ci": [
+  -0.007871369209552595,
+  0.0015178553933520664
+ ],
+ "p": 0.18474987672617904,
+ "chosen": [
+  {
+   "learning_rate": 0.1,
+   "max_depth": 6,
+   "n_estimators": 100
+  },
+  {
+   "learning_rate": 0.03,
+   "max_depth": 2,
+   "n_estimators": 600
+  },
+  {
+   "learning_rate": 0.1,
+   "max_depth": 2,
+   "n_estimators": 300
+  },
+  {
+   "learning_rate": 0.03,
+   "max_depth": 2,
+   "n_estimators": 600
+  },
+  {
+   "learning_rate": 0.03,
+   "max_depth": 6,
+   "n_estimators": 300
+  }
+ ]
+}

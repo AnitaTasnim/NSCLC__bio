@@ -1,0 +1,22 @@
+{
+ "SexMaleNsclcPct": "68.2",
+ "SexMaleHealthyPct": "64.5",
+ "SexChiP": "$p = 0.394$",
+ "SexChiPVumc": "$p = 0.057$",
+ "SexAssocGenes": "PCSK5, USP27X, C1QA, NTNG2, TMEM39B, CXCL14, TNFRSF17",
+ "SexAssocN": "7",
+ "SexMaleAUC": "0.9710",
+ "SexMaleCI": "0.9578--0.9842",
+ "SexMaleN": "423",
+ "SexFemaleAUC": "0.9457",
+ "SexFemaleCI": "0.9159--0.9755",
+ "SexFemaleN": "210",
+ "SexAdjOR": "3.00",
+ "SexAdjP": "$p < 0.001$",
+ "SexTermP": "$p = 0.629$",
+ "SmokingPanelOverlap": "none",
+ "SmokingScoreRhoHealthy": "0.07",
+ "SmokingScoreRhoNsclc": "$-$0.06",
+ "SmokingScoreAUCVumc": "0.318",
+ "SmokingGenesN": "10"
+}

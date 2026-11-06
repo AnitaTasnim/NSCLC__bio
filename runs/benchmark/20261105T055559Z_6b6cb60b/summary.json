@@ -1,0 +1,111 @@
+{
+ "benchmark": {
+  "six_stage_four_term": {
+   "auc": 0.9325,
+   "auc_lo": 0.9131,
+   "auc_hi": 0.9519,
+   "phi": 0.2135,
+   "phi_lo": 0.184,
+   "phi_hi": 0.2431,
+   "pairwise_jaccard": 0.1205,
+   "sizes": "26;27;27;29;24"
+  },
+  "six_stage_five_term": {
+   "auc": 0.937,
+   "auc_lo": 0.9181,
+   "auc_hi": 0.9559,
+   "phi": 0.2082,
+   "phi_lo": 0.1704,
+   "phi_hi": 0.246,
+   "pairwise_jaccard": 0.1172,
+   "sizes": "26;27;27;29;25"
+  },
+  "mw_topk": {
+   "auc": 0.9353,
+   "auc_lo": 0.9166,
+   "auc_hi": 0.9541,
+   "phi": 0.9518,
+   "phi_lo": 0.9236,
+   "phi_hi": 0.9801,
+   "pairwise_jaccard": 0.9091,
+   "sizes": "27;27;27;27;27"
+  },
+  "l1_topk": {
+   "auc": 0.946,
+   "auc_lo": 0.9289,
+   "auc_hi": 0.963,
+   "phi": 0.2103,
+   "phi_lo": 0.1362,
+   "phi_hi": 0.2845,
+   "pairwise_jaccard": 0.1197,
+   "sizes": "27;27;27;27;27"
+  },
+  "stability": {
+   "auc": 0.9527,
+   "auc_lo": 0.9363,
+   "auc_hi": 0.9691,
+   "phi": 0.5588,
+   "phi_lo": 0.4964,
+   "phi_hi": 0.6212,
+   "pairwise_jaccard": 0.3896,
+   "sizes": "27;27;27;27;27"
+  },
+  "mrmr_ifs_svm": {
+   "auc": 0.963,
+   "auc_lo": 0.9507,
+   "auc_hi": 0.9752,
+   "phi": 0.5062,
+   "phi_lo": 0.129,
+   "phi_hi": 0.8833,
+   "pairwise_jaccard": 0.4299,
+   "sizes": "31;34;31;142;42"
+  },
+  "random (median of 20)": {
+   "auc": 0.885,
+   "auc_lo": 0.8576,
+   "auc_hi": 0.9192,
+   "phi": 0.0102,
+   "phi_lo": NaN,
+   "phi_hi": NaN,
+   "pairwise_jaccard": 0.0057,
+   "sizes": "27"
+  }
+ },
+ "comparisons": {
+  "six_stage_four_term - six_stage_five_term": {
+   "delta": -0.00452,
+   "lo": -0.01041,
+   "hi": 0.00137,
+   "p": 0.13232,
+   "p_holm": 0.26464
+  },
+  "six_stage_four_term - mw_topk": {
+   "delta": -0.00285,
+   "lo": -0.0243,
+   "hi": 0.0186,
+   "p": 0.79429,
+   "p_holm": 0.79429
+  },
+  "six_stage_four_term - l1_topk": {
+   "delta": -0.01349,
+   "lo": -0.02755,
+   "hi": 0.00056,
+   "p": 0.05989,
+   "p_holm": 0.17966
+  },
+  "six_stage_four_term - stability": {
+   "delta": -0.02018,
+   "lo": -0.03483,
+   "hi": -0.00553,
+   "p": 0.00693,
+   "p_holm": 0.02774
+  },
+  "six_stage_four_term - mrmr_ifs_svm": {
+   "delta": -0.03048,
+   "lo": -0.0489,
+   "hi": -0.01205,
+   "p": 0.00119,
+   "p_holm": 0.00595
+  }
+ }
+}

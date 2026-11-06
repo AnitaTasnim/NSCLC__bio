@@ -1,0 +1,11 @@
+{"t": 0.29, "event": "run_started", "dir": "runs/pathway_model/20261105T070553Z_4113dc39"}
+{"t": 2.79, "event": "data_loaded", "samples": 633, "genes": 27949, "nsclc": 402}
+{"t": 4.87, "event": "pathway_setup", "universe": 21500, "sets": 1064, "external": 94}
+{"t": 14.63, "event": "nested_fold", "fold": 1, "auc": 0.7846}
+{"t": 16.88, "event": "nested_fold", "fold": 2, "auc": 0.8406}
+{"t": 19.68, "event": "nested_fold", "fold": 3, "auc": 0.7729}
+{"t": 23.26, "event": "nested_fold", "fold": 4, "auc": 0.8478}
+{"t": 26.8, "event": "nested_fold", "fold": 5, "auc": 0.8054}
+{"t": 360.22, "event": "site", "vumc_nested": 0.8047, "transfer": 0.3941}
+{"t": 411.14, "event": "pathway_done", "nested_auc": 0.8073, "locked_auc": 0.8824, "psi": 0.448}
+{"t": 411.47, "event": "run_finished", "status": "completed"}

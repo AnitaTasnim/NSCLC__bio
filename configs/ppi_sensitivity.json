@@ -1,0 +1,6 @@
+{
+ "base": "configs/base.json",
+ "experiment": "ppi_sensitivity",
+ "description": "Bounds on the influence of the STRING PPI term inside the folds.",
+ "params": {"draws": 100}
+}

@@ -1,0 +1,6 @@
+fold,chosen,inner_auc_best,inner_auc_default,heldout_auc
+1,"{'learning_rate': 0.1, 'max_depth': 6, 'n_estimators': 100}",0.9487915203888739,0.947626924115582,0.9337765957446809
+2,"{'learning_rate': 0.03, 'max_depth': 2, 'n_estimators': 600}",0.9678033173360276,0.9651932306137914,0.936929683306495
+3,"{'learning_rate': 0.1, 'max_depth': 2, 'n_estimators': 300}",0.954837080070725,0.9515197440431086,0.9342458400429415
+4,"{'learning_rate': 0.03, 'max_depth': 2, 'n_estimators': 600}",0.9806110458284372,0.9728722511331208,0.9385869565217391
+5,"{'learning_rate': 0.03, 'max_depth': 6, 'n_estimators': 300}",0.9674164848077892,0.9669968104750712,0.9065217391304348

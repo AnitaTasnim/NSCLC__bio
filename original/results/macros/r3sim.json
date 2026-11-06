@@ -1,0 +1,21 @@
+{
+ "SimZDelta": "$-$0.5",
+ "SimZDeltaRange": "$-$5.0 to +3.0",
+ "SimZPrevSpread": "1.1",
+ "SimZDeltaLowPrev": "$-$1.1",
+ "SimZDeltaHighPrev": "$-$0.0",
+ "SimJointDelta": "$-$0.4",
+ "SimJointDeltaRange": "$-$3.8 to +3.8",
+ "SimJointPrevSpread": "0.3",
+ "SimJointDeltaLowPrev": "$-$0.6",
+ "SimJointDeltaHighPrev": "$-$0.3",
+ "SimRefDelta": "$-$0.6",
+ "SimRefDeltaRange": "$-$3.5 to +2.8",
+ "SimRefPrevSpread": "0.4",
+ "SimRefDeltaLowPrev": "$-$0.8",
+ "SimRefDeltaHighPrev": "$-$0.4",
+ "SimNoneAUC": "0.947",
+ "SimR": "30",
+ "SimN": "50",
+ "SimNonePrevSpread": "1.3"
+}

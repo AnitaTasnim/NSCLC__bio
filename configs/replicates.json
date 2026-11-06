@@ -1,0 +1,7 @@
+{
+ "base": "configs/base.json",
+ "experiment": "replicates",
+ "description": "Panel re-selected vs panel fixed on R subsamples of each outer training fold; six baselines.",
+ "params": {"R": 10, "frac": 0.8, "k": 27, "B": 500,
+            "methods": ["six_stage", "mw_topk", "l1_topk", "stability", "mrmr_ifs_svm", "random"]}
+}

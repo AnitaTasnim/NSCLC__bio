@@ -1,0 +1,8 @@
+setting,description,uses_external_labels,uses_unlabelled_external_data,model_retrained,works_for_single_new_sample,auc,ci_lo,ci_hi,note
+S0,No harmonisation (frozen model),No,No,No,Yes,0.8268518518518518,0.7240509259259259,0.912048611111111,
+S1a,"Joint ComBat-seq (both cohorts adjusted), model retrained on adjusted discovery data",No,Yes (joint with discovery),Yes,No,0.8504629629629629,0.7657407407407407,0.9263888888888888,
+S1b,"Joint ComBat-seq, frozen model (not re-trained)",No,Yes (joint),No,No,0.8689814814814816,0.7907407407407407,0.9393634259259259,
+S2,"Reference-batch ComBat-seq (discovery = fixed reference; only the new cohort is adjusted), frozen model (not re-trained)",No,Yes (new cohort only),No,No (needs a batch),0.8490740740740741,0.7648032407407408,0.9226967592592593,reference unchanged: True
+S3,"Reference location/scale alignment estimated on all external samples (unlabelled), frozen model",No,Yes (new cohort only),No,No (needs a batch),0.8574074074074075,0.7722106481481483,0.9324074074074074,
+S4,"Add-on alignment: parameters from k unlabelled new-site samples, evaluated on the remaining samples (see R3_addon_calibration_size.csv)",No,Yes (calibration subset only),No,"Yes, after a k-sample calibration",0.855287256603046,,,median over repeats at the largest k
+S5,"Single-sample within-sample rank features (14 panel genes ranked among 9566 expressed genes), no harmonisation",No,No,Yes (rank model),Yes,0.8564814814814815,0.7675810185185185,0.9282407407407407,

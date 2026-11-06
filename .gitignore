@@ -1,0 +1,11 @@
+runs/*/*/cache/
+runs/_engine/
+runs/smoke/
+data/inputs/*.parquet
+data/inputs/*.csv
+data/inputs/gse68086/
+__pycache__/
+*.pyc
+
+# re-drawn figures
+figures/build/

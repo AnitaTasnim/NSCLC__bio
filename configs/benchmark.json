@@ -1,0 +1,6 @@
+{
+ "base": "configs/base.json",
+ "experiment": "benchmark",
+ "description": "Nested benchmark of established selectors on the paper's outer folds; Holm-adjusted DeLong comparisons.",
+ "params": {"methods": ["mw_topk", "l1_topk", "stability", "mrmr_ifs_svm", "random"], "k": 27, "n_random": 20}
+}

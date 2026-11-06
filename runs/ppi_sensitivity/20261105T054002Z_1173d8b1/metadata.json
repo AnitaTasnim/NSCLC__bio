@@ -1,0 +1,31 @@
+{
+ "pmtrd_version": "2.0.0",
+ "status": "completed",
+ "config_sha256": "1173d8b11c08d1fcafb98b004b189bb8d3a748527badfcbcb6dd29c7755b47dd",
+ "code_sha256": "3007ba140e08282bd652f6040e2bd6b3dca2a0bb77345fd4e5e358c288ed6da8",
+ "python": "3.13.17",
+ "platform": "Linux-6.18.44-fc-v236-x86_64-with-glibc2.39",
+ "packages": {
+  "numpy": "2.5.3",
+  "pandas": "3.0.5",
+  "scipy": "1.18.1",
+  "scikit-learn": "1.9.1",
+  "xgboost": "3.4.1",
+  "statsmodels": "0.15.0",
+  "joblib": "1.6.0",
+  "pyarrow": "26.0.0"
+ },
+ "seed": 42,
+ "inputs": {
+  "discovery_expr": {
+   "path": "data/inputs/GSE89843_expr.parquet",
+   "sha256": "3918866b2a50334fc64871205b37c1fea42f7e29d994fc046d1ef0832e31d126"
+  },
+  "discovery_meta": {
+   "path": "data/inputs/GSE89843_meta.csv",
+   "sha256": "04c863f8e124399280c63e8c73dbf17506e78d1f41072f38b0add67cd367db67"
+  }
+ },
+ "started_utc": "2026-11-05T05:40:02.758683+00:00",
+ "elapsed_seconds": 299.9
+}

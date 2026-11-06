@@ -1,0 +1,33 @@
+{
+ "data": {
+  "discovery_expr": "data/inputs/GSE89843_expr.parquet",
+  "discovery_meta": "data/inputs/GSE89843_meta.csv"
+ },
+ "description": "Replicate study on Singh et al. 2002: prostate tumour vs normal tissue, Affymetrix.",
+ "engine_config": "engine/config.json",
+ "experiment": "replicates_generic",
+ "n_jobs": 2,
+ "out_root": "runs/generalisation/singh_prostate",
+ "params": {
+  "B": 500,
+  "R": 10,
+  "dataset": {
+   "floor": 1.0,
+   "loader": "datamicroarray",
+   "name": "singh",
+   "path": "data/external/singh.RData",
+   "positive": "Tumor"
+  },
+  "frac": 0.8,
+  "k": 27,
+  "methods": [
+   "six_stage",
+   "mw_topk",
+   "l1_topk",
+   "stability",
+   "mrmr_ifs_svm",
+   "random"
+  ]
+ },
+ "seed": 42
+}

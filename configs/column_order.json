@@ -1,0 +1,6 @@
+{
+ "base": "configs/base.json",
+ "experiment": "column_order",
+ "description": "XGBoost column-order noise floor of the fixed-panel AUC.",
+ "params": {"n_orders": 20}
+}

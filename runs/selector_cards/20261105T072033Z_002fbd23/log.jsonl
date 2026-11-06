@@ -1,0 +1,8 @@
+{"t": 0.33, "event": "run_started", "dir": "runs/selector_cards/20261105T072033Z_002fbd23"}
+{"t": 2.81, "event": "data_loaded", "samples": 633, "genes": 27949, "nsclc": 402}
+{"t": 141.86, "event": "card", "method": "six_stage", "vumc": 0.9399, "transfer": 0.7863, "external": 0.8481, "site_dominant": 0.667, "coverage": 0.667}
+{"t": 158.69, "event": "card", "method": "mw_topk", "vumc": 0.9367, "transfer": 0.5438, "external": 0.8662, "site_dominant": 0.852, "coverage": 1.0}
+{"t": 188.5, "event": "card", "method": "l1_topk", "vumc": 0.962, "transfer": 0.7159, "external": 0.8704, "site_dominant": 0.593, "coverage": 0.778}
+{"t": 236.45, "event": "card", "method": "stability", "vumc": 0.9694, "transfer": 0.7216, "external": 0.9431, "site_dominant": 0.63, "coverage": 0.963}
+{"t": 282.16, "event": "card", "method": "mrmr_ifs_svm", "vumc": 0.9606, "transfer": 0.833, "external": 0.95, "site_dominant": 0.32, "coverage": 0.88}
+{"t": 282.51, "event": "run_finished", "status": "completed"}

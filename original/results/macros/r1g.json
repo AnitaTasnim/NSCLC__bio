@@ -1,0 +1,20 @@
+{
+ "GeneNpanel": "27",
+ "GeneVumcSig": "18",
+ "GeneVumcSigGW": "18",
+ "GeneDirConc": "22",
+ "GeneDisDom": "9",
+ "GeneSiteDom": "18",
+ "GeneAdjSig": "15",
+ "GeneMedEpsDis": "0.021",
+ "GeneMedEpsSite": "0.162",
+ "GeneSiteDomList": "PCSK5, JOSD1, USP27X, SPHAR, C1QA, HOXC12, NTNG2, TMEM39B, OR52B6, DDAH1, PRSS42, TM4SF1, MFN2, KRTAP22-1, GJB2, CXCL14, TYMS, TNFRSF17",
+ "GeneNotSigList": "USP27X, SPHAR, OR52B6, DDAH1, PRSS42, KRTAP22-1, GJB2, CXCL14, TYMS",
+ "TierTwoN": "3{,}557",
+ "TierTwoDisDomPct": "8.1",
+ "PanelDisDomPct": "33.3",
+ "DisDomFisherOR": "5.67",
+ "DisDomFisherP": "$p < 0.001$",
+ "GeneSiteVerdict": "The multi-criteria selection therefore preferentially retained disease-dominant genes",
+ "GWSiteDomPct": "97.7"
+}

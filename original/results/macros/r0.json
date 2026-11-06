@@ -1,0 +1,20 @@
+{
+ "CoreFixedAUC": "0.9626",
+ "CoreFixedCI": "0.9497--0.9756",
+ "CoreFixedFoldMean": "0.9629",
+ "CoreFixedFoldSD": "0.0259",
+ "CoreCpmAUC": "0.9410",
+ "CoreCpmCI": "0.9237--0.9582",
+ "CoreCpmFoldMean": "0.9426",
+ "CoreOrderN": "40",
+ "CoreOrderMin": "0.9575",
+ "CoreOrderMax": "0.9705",
+ "CoreOrderMean": "0.9656",
+ "CoreSiteStratAUC": "0.9649",
+ "CoreSiteStratCI": "0.9519--0.9778",
+ "CoreSiteStratN": "621",
+ "CoreVumcAUC": "0.9583",
+ "CoreVumcCI": "0.9411--0.9754",
+ "CoreHeldOutAUC": "0.7547",
+ "CoreHeldOutCI": "0.7068--0.8027"
+}

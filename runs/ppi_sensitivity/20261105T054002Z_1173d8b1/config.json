@@ -1,0 +1,15 @@
+{
+ "data": {
+  "discovery_expr": "data/inputs/GSE89843_expr.parquet",
+  "discovery_meta": "data/inputs/GSE89843_meta.csv"
+ },
+ "description": "Bounds on the influence of the STRING PPI term inside the folds.",
+ "engine_config": "engine/config.json",
+ "experiment": "ppi_sensitivity",
+ "n_jobs": 2,
+ "out_root": "runs",
+ "params": {
+  "draws": 100
+ },
+ "seed": 42
+}

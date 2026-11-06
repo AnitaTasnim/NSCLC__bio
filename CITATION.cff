@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the article."
+title: "TEP-PMTRD: reliability decomposition of a tumour-educated platelet RNA signature"
+authors:
+  - family-names: Tasnim
+    given-names: Anita
+  - family-names: Islam
+    given-names: Syed Mohammed Shamsul
+  - family-names: Mahmood
+    given-names: Hassan
+  - family-names: Alam
+    given-names: Tamzid Tanvi
+  - family-names: Morol
+    given-names: Md Kishor
+  - family-names: Rahman
+    given-names: Md. Hasibur
+license: MIT

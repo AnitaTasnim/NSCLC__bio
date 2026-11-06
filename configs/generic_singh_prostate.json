@@ -1,0 +1,8 @@
+{
+ "base": "configs/base.json",
+ "experiment": "replicates_generic",
+ "description": "Replicate study on Singh et al. 2002: prostate tumour vs normal tissue, Affymetrix.",
+ "out_root": "runs/generalisation/singh_prostate",
+ "params": {"dataset": {"loader": "datamicroarray", "path": "data/external/singh.RData", "name": "singh", "positive": "Tumor", "floor": 1.0}, "R": 10, "frac": 0.8, "k": 27, "B": 500,
+            "methods": ["six_stage", "mw_topk", "l1_topk", "stability", "mrmr_ifs_svm", "random"]}
+}

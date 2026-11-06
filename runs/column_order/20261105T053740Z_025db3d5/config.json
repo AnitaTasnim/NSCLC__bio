@@ -1,0 +1,15 @@
+{
+ "data": {
+  "discovery_expr": "data/inputs/GSE89843_expr.parquet",
+  "discovery_meta": "data/inputs/GSE89843_meta.csv"
+ },
+ "description": "XGBoost column-order noise floor of the fixed-panel AUC.",
+ "engine_config": "engine/config.json",
+ "experiment": "column_order",
+ "n_jobs": 2,
+ "out_root": "runs",
+ "params": {
+  "n_orders": 20
+ },
+ "seed": 42
+}

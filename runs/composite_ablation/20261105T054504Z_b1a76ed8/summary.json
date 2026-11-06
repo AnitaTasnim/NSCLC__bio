@@ -1,0 +1,58 @@
+{
+ "default_auc": 0.9370032952122503,
+ "default_phi": 0.20819597138616608,
+ "single_term": {
+  "drop_stat": {
+   "auc": 0.9362,
+   "delta_vs_default": -0.0008,
+   "p": 0.7403,
+   "jaccard_vs_default": 0.9208,
+   "phi": 0.2211
+  },
+  "drop_effect": {
+   "auc": 0.9394,
+   "delta_vs_default": 0.0024,
+   "p": 0.6041,
+   "jaccard_vs_default": 0.6967,
+   "phi": 0.2583
+  },
+  "drop_lasso": {
+   "auc": 0.936,
+   "delta_vs_default": -0.001,
+   "p": 0.8674,
+   "jaccard_vs_default": 0.6424,
+   "phi": 0.1696
+  },
+  "drop_boot": {
+   "auc": 0.9401,
+   "delta_vs_default": 0.0031,
+   "p": 0.473,
+   "jaccard_vs_default": 0.6783,
+   "phi": 0.172
+  },
+  "drop_prior": {
+   "auc": 0.9325,
+   "delta_vs_default": -0.0045,
+   "p": 0.1323,
+   "jaccard_vs_default": 0.9093,
+   "phi": 0.2135
+  },
+  "equal": {
+   "auc": 0.9394,
+   "delta_vs_default": 0.0023,
+   "p": 0.5351,
+   "jaccard_vs_default": 0.7884,
+   "phi": 0.1904
+  }
+ },
+ "dirichlet": {
+  "auc_median": 0.9390654950356442,
+  "auc_q05": 0.9315112747948568,
+  "auc_q95": 0.9454728521892699,
+  "auc_min": 0.9231547888264307,
+  "auc_max": 0.9488811354482997,
+  "jaccard_median": 0.6968611960407584,
+  "jaccard_q05": 0.4482384539181527,
+  "phi_median": 0.21006125160718914
+ }
+}

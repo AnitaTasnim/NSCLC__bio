@@ -1,0 +1,30 @@
+{
+ "data": {
+  "discovery_expr": "data/inputs/GSE89843_expr.parquet",
+  "discovery_meta": "data/inputs/GSE89843_meta.csv"
+ },
+ "description": "Reliability-guided pathway model (Hallmark + Reactome single-sample scores), evaluated with PMTRD.",
+ "engine_config": "engine/config.json",
+ "experiment": "pathway_model",
+ "n_jobs": 2,
+ "out_root": "runs",
+ "params": {
+  "R": 10,
+  "frac": 0.8,
+  "k": 27,
+  "libraries": [
+   "data/inputs/genesets/MSigDB_Hallmark_v7.5.1.gmt",
+   "data/inputs/genesets/Reactome_MSigDB_v7.5.1.gmt"
+  ],
+  "max_size": 500,
+  "min_size": 15,
+  "missing_draws": 50,
+  "missing_fractions": [
+   0.1,
+   0.2,
+   0.3,
+   0.5
+  ]
+ },
+ "seed": 42
+}

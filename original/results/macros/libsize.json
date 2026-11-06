@@ -1,0 +1,12 @@
+{
+ "LibAUCAll": "0.506",
+ "LibAUCVumc": "0.690",
+ "CpmVumcAUC": "0.9412",
+ "RawVumcAUC": "0.9583",
+ "CpmVumcP": "$p=0.115$",
+ "CpmVumcDelta": "1.7",
+ "CpmDelta": "2.2",
+ "CpmDeltaCI": "0.8 to 3.5",
+ "CpmDeltaP": "$p=0.002$",
+ "CpmPlusLibAUC": "0.9506"
+}

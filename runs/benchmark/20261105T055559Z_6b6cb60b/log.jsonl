@@ -1,0 +1,28 @@
+{"t": 0.36, "event": "run_started", "dir": "runs/benchmark/20261105T055559Z_6b6cb60b"}
+{"t": 2.62, "event": "data_loaded", "samples": 633, "genes": 27949, "nsclc": 402}
+{"t": 27.53, "event": "benchmark_method", "method": "mw_topk", "rep": 0, "auc": 0.9353, "sizes": [27, 27, 27, 27, 27]}
+{"t": 58.93, "event": "benchmark_method", "method": "l1_topk", "rep": 0, "auc": 0.946, "sizes": [27, 27, 27, 27, 27]}
+{"t": 100.46, "event": "benchmark_method", "method": "stability", "rep": 0, "auc": 0.9527, "sizes": [27, 27, 27, 27, 27]}
+{"t": 148.53, "event": "benchmark_method", "method": "mrmr_ifs_svm", "rep": 0, "auc": 0.963, "sizes": [31, 34, 31, 142, 42]}
+{"t": 173.53, "event": "benchmark_method", "method": "random", "rep": 0, "auc": 0.9192, "sizes": [27, 27, 27, 27, 27]}
+{"t": 198.06, "event": "benchmark_method", "method": "random", "rep": 1, "auc": 0.9055, "sizes": [27, 27, 27, 27, 27]}
+{"t": 222.87, "event": "benchmark_method", "method": "random", "rep": 2, "auc": 0.8576, "sizes": [27, 27, 27, 27, 27]}
+{"t": 247.71, "event": "benchmark_method", "method": "random", "rep": 3, "auc": 0.8833, "sizes": [27, 27, 27, 27, 27]}
+{"t": 272.31, "event": "benchmark_method", "method": "random", "rep": 4, "auc": 0.8797, "sizes": [27, 27, 27, 27, 27]}
+{"t": 296.7, "event": "benchmark_method", "method": "random", "rep": 5, "auc": 0.8875, "sizes": [27, 27, 27, 27, 27]}
+{"t": 322.17, "event": "benchmark_method", "method": "random", "rep": 6, "auc": 0.9077, "sizes": [27, 27, 27, 27, 27]}
+{"t": 348.86, "event": "benchmark_method", "method": "random", "rep": 7, "auc": 0.8694, "sizes": [27, 27, 27, 27, 27]}
+{"t": 374.46, "event": "benchmark_method", "method": "random", "rep": 8, "auc": 0.8852, "sizes": [27, 27, 27, 27, 27]}
+{"t": 399.89, "event": "benchmark_method", "method": "random", "rep": 9, "auc": 0.8999, "sizes": [27, 27, 27, 27, 27]}
+{"t": 425.11, "event": "benchmark_method", "method": "random", "rep": 10, "auc": 0.882, "sizes": [27, 27, 27, 27, 27]}
+{"t": 450.91, "event": "benchmark_method", "method": "random", "rep": 11, "auc": 0.8957, "sizes": [27, 27, 27, 27, 27]}
+{"t": 476.23, "event": "benchmark_method", "method": "random", "rep": 12, "auc": 0.9081, "sizes": [27, 27, 27, 27, 27]}
+{"t": 501.79, "event": "benchmark_method", "method": "random", "rep": 13, "auc": 0.8848, "sizes": [27, 27, 27, 27, 27]}
+{"t": 527.79, "event": "benchmark_method", "method": "random", "rep": 14, "auc": 0.9045, "sizes": [27, 27, 27, 27, 27]}
+{"t": 553.48, "event": "benchmark_method", "method": "random", "rep": 15, "auc": 0.8611, "sizes": [27, 27, 27, 27, 27]}
+{"t": 578.42, "event": "benchmark_method", "method": "random", "rep": 16, "auc": 0.8664, "sizes": [27, 27, 27, 27, 27]}
+{"t": 604.11, "event": "benchmark_method", "method": "random", "rep": 17, "auc": 0.8707, "sizes": [27, 27, 27, 27, 27]}
+{"t": 629.39, "event": "benchmark_method", "method": "random", "rep": 18, "auc": 0.8941, "sizes": [27, 27, 27, 27, 27]}
+{"t": 654.76, "event": "benchmark_method", "method": "random", "rep": 19, "auc": 0.8727, "sizes": [27, 27, 27, 27, 27]}
+{"t": 654.94, "event": "benchmark_done", "methods": 7}
+{"t": 655.26, "event": "run_finished", "status": "completed"}

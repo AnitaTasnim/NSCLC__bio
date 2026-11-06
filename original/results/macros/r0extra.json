@@ -1,0 +1,9 @@
+{
+ "CoreSiteStratFoldMean": "0.9657",
+ "CoreSiteStratFoldSD": "0.0178",
+ "CoreVumcFoldMean": "0.9581",
+ "CoreVumcFoldSD": "0.0047",
+ "CoreFixedFoldMean": "0.9629",
+ "CoreFixedFoldSD": "0.0259",
+ "CoreFixedAUPRC": "0.9785"
+}

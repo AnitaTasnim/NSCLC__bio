@@ -1,0 +1,4 @@
+{"t": 0.31, "event": "run_started", "dir": "runs/ppi_sensitivity/20261105T054002Z_1173d8b1"}
+{"t": 2.52, "event": "data_loaded", "samples": 633, "genes": 27949, "nsclc": 402}
+{"t": 299.55, "event": "ppi_done", "none_auc": 0.9370032952122503, "all_max": {"auc": 0.9380801619607589, "jaccard_vs_five_term": 0.6321803183639048}, "adversarial": {"auc": 0.9338265383041503, "jaccard_vs_five_term": 0.6065186150861023, "delta_vs_none": -0.0031767569081002645, "p": 0.5633171920096725}, "empirical": {"auc_median": 0.9371002132196162, "auc_min": 0.9295836833150266, "auc_max": 0.9428183756541965, "jaccard_median": 0.9585878489326765, "jaccard_min": 0.9077577084473635}}
+{"t": 299.85, "event": "run_finished", "status": "completed"}

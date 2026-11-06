@@ -1,0 +1,14 @@
+{
+ "NestedAUC": "0.9325",
+ "NestedCI": "0.9131--0.9519",
+ "NestedFoldMean": "0.9340",
+ "NestedFoldSD": "0.0195",
+ "NestedFoldMin": "0.9003",
+ "NestedFoldMax": "0.9471",
+ "NestedJMean": "0.224",
+ "NestedJSD": "0.035",
+ "NestedSizes": "26, 27, 27, 29, 24",
+ "NestedGap": "3.0",
+ "NestedGapCI": "+1.58 to +4.45",
+ "NestedGapP": "$p < 0.001$"
+}

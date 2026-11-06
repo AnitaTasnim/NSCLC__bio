@@ -1,0 +1,15 @@
+\begin{tabular}{lcccccc}
+\toprule
+ & \multicolumn{3}{c}{Four-term selection} & \multicolumn{3}{c}{Five-term selection} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Outer fold & AUC & Genes & Jaccard & AUC & Genes ($|\mathcal{G}^{(k)}_{\mathrm{FI}}|$) & Jaccard \\
+\midrule
+1 & 0.9436 & 26 & 0.205 & 0.9439 & 26 (89) & 0.205 \\
+2 & 0.9342 & 27 & 0.286 & 0.9351 & 27 (20) & 0.286 \\
+3 & 0.9471 & 27 & 0.200 & 0.9538 & 27 (21) & 0.227 \\
+4 & 0.9446 & 29 & 0.217 & 0.9465 & 29 (23) & 0.217 \\
+5 & 0.9003 & 24 & 0.214 & 0.9060 & 25 (22) & 0.209 \\
+\midrule
+Pooled out-of-fold & \multicolumn{3}{c}{0.9325 (0.9131--0.9519)} & \multicolumn{3}{c}{0.9370 (0.9181--0.9559)} \\
+\bottomrule
+\end{tabular}

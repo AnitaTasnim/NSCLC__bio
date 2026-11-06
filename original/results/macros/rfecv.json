@@ -1,0 +1,14 @@
+{
+ "RfecvPool": "223",
+ "RfecvK": "74",
+ "RfecvAUC": "0.9789",
+ "RfecvSD": "0.0100",
+ "RfecvPanelAUC": "0.9625",
+ "RfecvPanelSD": "0.0309",
+ "RfecvPanelPct": "98.3",
+ "RfecvGenePct": "36.5",
+ "SsN": "200",
+ "SsPanelN": "26",
+ "SsPanelBelow": "CXCL14",
+ "SsPoolN": "32"
+}

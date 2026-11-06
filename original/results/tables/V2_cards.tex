@@ -1,0 +1,15 @@
+\begin{tabular}{l ccc ccc cccc}
+\toprule
+ & \multicolumn{3}{c}{Predictive} & \multicolumn{3}{c}{Molecular} & \multicolumn{4}{c}{Technical} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-11}
+Model & Nested AUC & External AUC & Ext.\ intercept & $\hat\Phi$ folds & $\hat\Phi$ replicates & $\psi$ & Vumc nested AUC & Vumc$\rightarrow$other sites & Site-dominant (\%) & Coverage (\%) \\
+\midrule
+Six-stage (paper) & 0.9325 & 0.8481 & 2.80 & 0.214 & 0.309 & 0.844 & 0.9399 & 0.7863 & 67 & 67 \\
+Mann--Whitney top 27 & 0.9353 & 0.8662 & 0.82 & 0.952 & 0.934 & 0.511 & 0.9367 & 0.5438 & 85 & 100 \\
+L1-logistic top 27 & 0.9460 & 0.8704 & 1.87 & 0.210 & 0.294 & 0.815 & 0.9620 & 0.7159 & 59 & 78 \\
+Stability selection & 0.9527 & 0.9431 & 1.39 & 0.559 & 0.520 & 0.696 & 0.9694 & 0.7216 & 63 & 96 \\
+mRMR--IFS--SVM & 0.9630 & 0.9500 & 2.06 & 0.506 & 0.670 & -- & 0.9606 & 0.8330 & 32 & 88 \\
+\midrule
+Pathway model (reliability-guided) & 0.8073 & 0.8824 & $-$1.35 & 0.761 & 0.725 & 0.448 & 0.8047 & 0.3941 & -- & 100 \\
+\bottomrule
+\end{tabular}

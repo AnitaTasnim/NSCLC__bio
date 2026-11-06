@@ -1,0 +1,11 @@
+{
+ "ShSensN": "8",
+ "ShSensMin": "0.9552",
+ "ShSensMax": "0.9736",
+ "ShSensAllHigher": "8",
+ "ShSensSigHigher": "8",
+ "ShSensMinVariant": "C = 10",
+ "ShSensDeltaRange": "2.27--4.11",
+ "ShSensSizeRange": "22--150",
+ "ShSensMaxP": "0.021"
+}

@@ -1,0 +1,17 @@
+{
+ "ReproLassoN": "121",
+ "ReproEnetN": "128",
+ "ReproConsN": "120",
+ "ReproCodingN": "95",
+ "ReproStableN": "75",
+ "ReproOverlap": "26",
+ "ReproJaccard": "0.929",
+ "ReproNew": "ZSCAN23",
+ "ReproMissing": "NTNG2",
+ "FoldRecOverlap": "22",
+ "FoldRecJaccard": "0.710",
+ "FoldRecN": "26",
+ "FoldRecNew": "DOCK1, NXPH4, PCOTH, ZSCAN23",
+ "FoldRecMissing": "DUOXA1, FCER1A, ITGB3BP, LY6G6D, NTNG2",
+ "ReproBootCorr": "0.99"
+}
