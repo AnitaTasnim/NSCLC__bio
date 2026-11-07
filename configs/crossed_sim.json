@@ -1,0 +1,123 @@
+{
+  "_comment": "Simulation study E1-E4 of the crossed pick-freeze estimator. Fractional (one-factor-at-a-time) design around a base point; see docs/crossed_simulation.md for why the full factorial is not run. Fixed before any result was seen.",
+  "root_seed": 20261108,
+  "base": {
+    "n": 300,
+    "p": 1000,
+    "rho": 0.5,
+    "auc": 0.9,
+    "f": 0.8
+  },
+  "variations": {
+    "n": [
+      100,
+      600
+    ],
+    "p": [
+      10000
+    ],
+    "rho": [
+      0.0,
+      0.9
+    ],
+    "auc": [
+      0.75,
+      0.97
+    ],
+    "f": [
+      0.5,
+      0.632,
+      0.9
+    ]
+  },
+  "block": 10,
+  "n_signal": 20,
+  "prevalence": 0.6,
+  "k": 27,
+  "selectors": [
+    "mw",
+    "l1",
+    "random"
+  ],
+  "classifiers": {
+    "logistic": {
+      "C": 1.0
+    },
+    "xgboost": {
+      "n_estimators": 300,
+      "learning_rate": 0.03,
+      "max_depth": 4,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "device": "cpu"
+    }
+  },
+  "fixed_seed": 42,
+  "truth": {
+    "R": 200,
+    "offsets": {
+      "logistic": 10,
+      "xgboost": 5
+    },
+    "seed_cells": 40,
+    "M": 5,
+    "n_patients": 1000,
+    "jackknife_groups": 10
+  },
+  "design": {
+    "logistic": {
+      "configs": "all",
+      "n_T": 4,
+      "R_base": {
+        "5": 25,
+        "10": 50,
+        "20": 12,
+        "50": 3
+      },
+      "R_other": {
+        "10": 50
+      },
+      "n_T_p10000": 2,
+      "R_p10000": {
+        "10": 50
+      }
+    },
+    "xgboost": {
+      "configs": [
+        "base"
+      ],
+      "n_T": 2,
+      "R_base": {
+        "5": 15,
+        "10": 40,
+        "20": 4
+      },
+      "R_other": {},
+      "n_T_p10000": 0,
+      "R_p10000": {}
+    }
+  },
+  "rep_draw_base": {
+    "5": 10000,
+    "10": 20000,
+    "20": 30000,
+    "50": 40000
+  },
+  "bootstrap_B": 400,
+  "criteria": {
+    "R": 10,
+    "n_min": 300,
+    "abs_bias_max": 0.02,
+    "coverage_low": 0.92,
+    "coverage_high": 0.97,
+    "ci_method": "pigeonhole",
+    "statistics": [
+      "S",
+      "Q",
+      "SQ",
+      "E",
+      "gamma",
+      "Q+gamma"
+    ]
+  }
+}
