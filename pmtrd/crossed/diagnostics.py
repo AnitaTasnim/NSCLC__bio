@@ -223,3 +223,52 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+def pilot_figure(out: str) -> str:
+    """Dot plot of the pilot coverage: pre-registered pigeonhole versus the candidate jackknife-t interval."""
+    import pandas as pd
+
+    from .report import COL, GRID, SEL, STAT_LABEL, SURF, _setup
+    from .report import wilson
+    plt = _setup()
+    s = pd.read_csv(os.path.join(out, "pilot_summary.csv"))
+    stats = ["S", "Q", "SQ", "gamma", "Q+gamma", "eq3"]
+    sels = ["mw", "l1", "random"]
+    meth = [("pigeonhole", "coverage_pigeonhole", COL["pigeonhole"], "pigeonhole (pre-registered)"),
+            ("jackknife", "coverage_jackknife_t", "#6250d6", "jackknife-t (candidate, post hoc)")]
+    fig, axes = plt.subplots(1, len(stats), figsize=(7.2, 1.9), sharey=True)
+    for ax, st in zip(axes, stats):
+        ax.axvspan(0.92, 0.97, color="#e9e8e3", lw=0, zorder=0)
+        for i, sel in enumerate(sels):
+            r = s[(s.selector == sel) & (s.stat == st)]
+            if not len(r):
+                continue
+            r = r.iloc[0]
+            for k, (_, col, c, _) in enumerate(meth):
+                lo, hi = wilson(int(round(r[col] * r.n)), int(r.n))
+                y = i + (k - .5) * .3
+                ax.plot([lo, hi], [y, y], color=c, lw=.8)
+                ax.plot(r[col], y, "o", ms=3.4, color=c, mec=SURF, mew=.6)
+        ax.set_title(STAT_LABEL[st], fontsize=7.5)
+        ax.set_xlim(0.4, 1.02)
+        ax.set_xticks([.5, .75, 1])
+        ax.set_xticklabels([".5", ".75", "1"])
+        ax.tick_params(axis="y", length=0)
+        ax.spines["left"].set_visible(False)
+        ax.grid(axis="x", color=GRID, lw=.4)
+        ax.set_axisbelow(True)
+    axes[0].set_yticks(range(len(sels)))
+    axes[0].set_yticklabels([f"logistic {SEL[x]}" for x in sels])
+    axes[0].set_ylim(len(sels) - .5, -.5)
+    hs = [plt.Line2D([], [], marker="o", ms=3.4, lw=.8, color=c, label=lab) for _, _, c, lab in meth]
+    fig.legend(handles=hs, ncol=2, frameon=False, loc="upper left", bbox_to_anchor=(0, 1.1), fontsize=6.5)
+    fig.suptitle("POST HOC pilot: coverage at R = 10, base configuration, fresh seeds (100 replicates per row)",
+                 x=0, ha="left", y=1.2, fontsize=8, fontweight="bold")
+    fig.text(0, -0.06, "Grey band: 0.92–0.97. Lines: Wilson 95% intervals. Random-selector Π_S: the truth's own Monte "
+             "Carlo SE (≈0.010) exceeds the estimator's SD (≈0.002), so coverage there is not informative.",
+             fontsize=6, color="#52514e")
+    f = os.path.join(out, "fig_pilot_coverage.png")
+    fig.savefig(f)
+    plt.close(fig)
+    return f
