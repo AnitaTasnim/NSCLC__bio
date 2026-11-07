@@ -112,18 +112,99 @@ def runtime(T: pd.DataFrame, E: pd.DataFrame) -> pd.DataFrame:
 
 
 # ----------------------------------------------------------------------------------------------- figures
-COL = {"pigeonhole": "#2a78d6", "draws": "#14967a", "patients": "#eb6834"}
-SEL = {"mw": "Mann–Whitney", "l1": "L1-logistic", "random": "Random"}
+# Colours: reference categorical slots (fixed order) and a blue <-> red diverging pair with a grey midpoint.
+INK, INK2, MUTED, GRID, SURF = "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#fcfcfb"
+SLOTS = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#6250d6"]
+COL = {"pigeonhole": SLOTS[0], "draws": SLOTS[2], "patients": SLOTS[1]}
+MODE_LABEL = {"pigeonhole": "pigeonhole (pre-registered)", "draws": "draws only", "patients": "patients only (as in the paper)"}
+SEL = {"mw": "MW", "l1": "L1", "random": "Random"}
 STAT_LABEL = {"S": "Π_S", "Q": "Π_Q", "SQ": "Π_SQ", "E": "Π_E", "gamma": "Π_γ", "Q+gamma": "Π_Q+Π_γ", "eq3": "Eq. 3"}
+CFG_ORDER = ["base", "n=100", "n=600", "p=10000", "rho=0.0", "rho=0.9", "auc=0.75", "auc=0.97",
+             "f=0.5", "f=0.632", "f=0.9"]
+NEUTRAL, BLUE_LO, BLUE_HI, RED_LO, RED_HI = "#f0efec", "#cde2fb", "#1c5cab", "#f6cfce", "#a8302f"
 
 
 def _setup():
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    plt.rcParams.update({"font.size": 8, "axes.spines.top": False, "axes.spines.right": False,
-                         "figure.dpi": 150, "savefig.bbox": "tight"})
+    plt.rcParams.update({"font.size": 7.5, "font.family": "DejaVu Sans", "axes.spines.top": False,
+                         "axes.spines.right": False, "axes.edgecolor": "#c3c2b7", "axes.labelcolor": INK2,
+                         "xtick.color": INK2, "ytick.color": INK2, "text.color": INK, "figure.facecolor": SURF,
+                         "axes.facecolor": SURF, "savefig.facecolor": SURF, "figure.dpi": 200,
+                         "savefig.bbox": "tight", "axes.titlesize": 8, "axes.titleweight": "bold"})
     return plt
+
+
+def _mix(c1: str, c2: str, t: float):
+    import matplotlib.colors as mc
+    a, b = np.array(mc.to_rgb(c1)), np.array(mc.to_rgb(c2))
+    return tuple(a + (b - a) * float(np.clip(t, 0, 1)))
+
+
+def _diverge(v: float, lo: float, hi: float, lo_end: float, hi_end: float):
+    """Grey inside [lo, hi]; blue arm above hi (to hi_end), red arm below lo (to lo_end)."""
+    if not np.isfinite(v):
+        return (1, 1, 1)
+    if lo <= v <= hi:
+        return _mix(NEUTRAL, NEUTRAL, 0)
+    if v > hi:
+        return _mix(BLUE_LO, BLUE_HI, (v - hi) / (hi_end - hi))
+    return _mix(RED_LO, RED_HI, (lo - v) / (lo - lo_end))
+
+
+def _rows(S: pd.DataFrame) -> List[tuple]:
+    keys = S[["clf", "selector", "config"]].drop_duplicates()
+    order = {c: i for i, c in enumerate(CFG_ORDER)}
+    keys = keys.assign(c0=keys.clf.map({"logistic": 0, "xgboost": 1}), s0=keys.selector.map({"mw": 0, "l1": 1, "random": 2}),
+                       k0=keys.config.map(lambda c: order.get(c, 99)))
+    return [tuple(r) for r in keys.sort_values(["c0", "s0", "k0"])[["clf", "selector", "config"]].values]
+
+
+def _heat(plt, S, value, fmt, colour, title, note, crit_ok, fname, out, stats):
+    rows = _rows(S)
+    fig, ax = plt.subplots(figsize=(5.6, 0.16 * len(rows) + 1.1))
+    for i, (c, s, cf) in enumerate(rows):
+        for j, st in enumerate(stats):
+            d = S[(S.clf == c) & (S.selector == s) & (S.config == cf) & (S.stat == st)]
+            if not len(d) or (c == "logistic" and st == "E"):
+                ax.add_patch(plt.Rectangle((j, i), 1, 1, fc=SURF, ec=GRID, lw=0.3))
+                ax.text(j + .5, i + .5, "—" if (c == "logistic" and st == "E") else "", ha="center", va="center",
+                        fontsize=5.5, color=MUTED)
+                continue
+            r = d.iloc[0]
+            v = r[value]
+            fc = colour(v)
+            ax.add_patch(plt.Rectangle((j, i), 1, 1, fc=fc, ec=SURF, lw=1.0))
+            dark = np.mean(fc) < 0.62
+            counted = r.n >= 300 and st != "eq3"
+            ax.text(j + .5, i + .5, fmt(v), ha="center", va="center", fontsize=5.5,
+                    color="#ffffff" if dark else (INK if counted else INK2),
+                    fontweight="bold" if counted and not crit_ok(r) else "normal",
+                    fontstyle="normal" if counted else "italic")
+    ax.set_xlim(0, len(stats))
+    ax.set_ylim(len(rows), 0)
+    ax.set_xticks(np.arange(len(stats)) + .5)
+    ax.set_xticklabels([STAT_LABEL[s] for s in stats])
+    ax.xaxis.tick_top()
+    ax.set_yticks(np.arange(len(rows)) + .5)
+    ax.set_yticklabels([f"{c}  {SEL[s]}  {cf}" for c, s, cf in rows], fontsize=6)
+    for sp in ax.spines.values():
+        sp.set_visible(False)
+    ax.tick_params(length=0)
+    prev = None
+    for i, (c, s, _) in enumerate(rows):
+        if prev is not None and (c, s) != prev:
+            ax.axhline(i, color=INK2, lw=0.6)
+        prev = (c, s)
+    ax.set_title(title, loc="left", pad=22)
+    import textwrap
+    ax.text(-0.0, len(rows) + 0.5, textwrap.fill(note, 105), fontsize=6, color=INK2, ha="left", va="top",
+            clip_on=False)
+    f = os.path.join(out, fname)
+    fig.savefig(f)
+    plt.close(fig)
+    return f
 
 
 def figures(S: pd.DataFrame, rt: pd.DataFrame, out: str, crit: Dict) -> List[str]:
@@ -131,119 +212,147 @@ def figures(S: pd.DataFrame, rt: pd.DataFrame, out: str, crit: Dict) -> List[str
     files = []
     stats = ["S", "Q", "SQ", "E", "gamma", "Q+gamma"]
     r10 = S[S.R == 10]
+    lo, hi, bmax = crit["coverage_low"], crit["coverage_high"], crit["abs_bias_max"]
+
+    # 1. bias at R = 10: annotated heat map, grey within the +/-0.02 criterion
+    files.append(_heat(
+        plt, r10, "bias", lambda v: f"{v:+.3f}",
+        lambda v: _diverge(v, -bmax, bmax, -2 * bmax, 2 * bmax),
+        "Bias of the share estimators, R = 10",
+        f"Cell = mean(estimate − truth) over replicates. Grey: |bias| ≤ {bmax} (pre-registered); blue: above +{bmax}; "
+        f"red: below −{bmax}. Bold: fails the criterion. Italic: not counted (n = 100, or Eq. 3). —: Π_E is identically 0 "
+        "for logistic regression.", lambda r: abs(r.bias) <= bmax, "fig_bias_R10.png", out, stats + ["eq3"]))
+
+    # 2. pigeonhole coverage at R = 10: annotated heat map, grey inside the pre-registered band
+    files.append(_heat(
+        plt, r10, "coverage_pigeonhole", lambda v: f"{v:.3f}",
+        lambda v: _diverge(v, lo, hi, 0.5, 1.0),
+        "Coverage of the pre-registered pigeonhole 95% interval, R = 10",
+        f"Grey: inside {lo}–{hi}; blue: over-coverage (interval too wide); red: under-coverage. Bold: fails the "
+        "criterion. Italic: not counted (n = 100, or Eq. 3, which is reported but not part of the criterion).",
+        lambda r: lo <= r.coverage_pigeonhole <= hi, "fig_coverage_R10.png", out, stats + ["eq3"]))
+
+    # 3. the three interval methods at the base point: dot plot, one panel per statistic
+    b10 = r10[(r10.config == "base")]
     combos = [(c, s) for c in ("logistic", "xgboost") for s in ("mw", "l1", "random")
-              if len(r10[(r10.clf == c) & (r10.selector == s)])]
-
-    # 1. bias at R = 10 for every configuration
-    fig, axes = plt.subplots(len(combos), 1, figsize=(7.2, 1.6 * len(combos) + 0.4), sharex=True, squeeze=False)
-    for ax, (c, s) in zip(axes[:, 0], combos):
-        d = r10[(r10.clf == c) & (r10.selector == s) & r10.stat.isin(stats)]
-        cfgs = list(dict.fromkeys(d.sort_values(["n", "p", "rho", "auc", "f"]).config))
-        for j, st in enumerate(stats):
-            dd = d[d.stat == st].set_index("config").reindex(cfgs)
-            x = np.arange(len(cfgs)) + (j - 2.5) * 0.12
-            ax.errorbar(x, dd.bias, yerr=1.96 * dd.bias_se, fmt="o", ms=2.5, lw=0.8, label=STAT_LABEL[st])
-        ax.axhspan(-crit["abs_bias_max"], crit["abs_bias_max"], color="0.9", zorder=0)
-        ax.axhline(0, color="0.4", lw=0.6)
-        ax.set_ylabel(f"{c}\n{SEL[s]}\nbias")
-        ax.set_xticks(range(len(cfgs)))
-        ax.set_xticklabels(cfgs, rotation=45, ha="right")
-    axes[0, 0].legend(ncol=6, fontsize=6.5, frameon=False, loc="upper left", bbox_to_anchor=(0, 1.35))
-    fig.suptitle("Bias of the share estimators at R = 10 (grey band: ±0.02 criterion; bars: 95% MC interval)",
-                 fontsize=8, y=1.02)
-    f = os.path.join(out, "fig_bias_R10.png")
+              if len(b10[(b10.clf == c) & (b10.selector == s)])]
+    pan = stats + ["eq3"]
+    fig, axes = plt.subplots(1, len(pan), figsize=(7.2, 0.28 * len(combos) + 1.0), sharey=True)
+    for ax, st in zip(axes, pan):
+        ax.axvspan(lo, hi, color="#e9e8e3", zorder=0, lw=0)
+        ax.axvline(0.95, color="#c3c2b7", lw=0.6, zorder=0)
+        for i, (c, s) in enumerate(combos):
+            d = b10[(b10.clf == c) & (b10.selector == s) & (b10.stat == st)]
+            if not len(d) or (c == "logistic" and st == "E"):
+                continue
+            r = d.iloc[0]
+            for k, m in enumerate(MODES):
+                ax.plot([r[f"coverage_{m}_lo"], r[f"coverage_{m}_hi"]], [i + (k - 1) * .22] * 2, color=COL[m], lw=0.8)
+                ax.plot(r[f"coverage_{m}"], i + (k - 1) * .22, "o", ms=3.2, color=COL[m], mec=SURF, mew=0.6)
+        ax.set_title(STAT_LABEL[st], fontsize=7.5)
+        ax.tick_params(axis="y", length=0)
+        ax.spines["left"].set_visible(False)
+        ax.set_xlim(0, 1.02)
+        ax.set_xticks([0, .5, 1])
+        ax.set_xticklabels(["0", ".5", "1"])
+        ax.grid(axis="x", color=GRID, lw=0.4)
+        ax.set_axisbelow(True)
+    axes[0].set_yticks(range(len(combos)))
+    axes[0].set_yticklabels([f"{c} {SEL[s]}" for c, s in combos])
+    axes[0].set_ylim(len(combos) - .5, -.5)
+    handles = [plt.Line2D([], [], marker="o", ls="-", lw=.8, ms=3.2, color=COL[m], label=MODE_LABEL[m]) for m in MODES]
+    fig.legend(handles=handles, ncol=3, frameon=False, loc="upper left", bbox_to_anchor=(0.0, 1.06), fontsize=6.5)
+    fig.suptitle("Coverage of three 95% interval methods, base configuration, R = 10", x=0.0, ha="left", y=1.13,
+                 fontsize=8, fontweight="bold")
+    fig.text(0.0, -0.04, f"Grey band: pre-registered {lo}–{hi}. Lines: Wilson 95% intervals for the coverage.",
+             fontsize=6, color=INK2)
+    f = os.path.join(out, "fig_coverage_methods_base.png")
     fig.savefig(f)
     plt.close(fig)
     files.append(f)
 
-    # 2. coverage at R = 10, three interval methods
-    fig, axes = plt.subplots(len(combos), 1, figsize=(7.2, 1.6 * len(combos) + 0.4), sharex=True, squeeze=False)
-    for ax, (c, s) in zip(axes[:, 0], combos):
-        d = r10[(r10.clf == c) & (r10.selector == s) & r10.stat.isin(stats)]
-        d = d[~((d.clf == "logistic") & (d.stat == "E"))]
-        cfgs = list(dict.fromkeys(d.sort_values(["n", "p", "rho", "auc", "f"]).config))
-        labels = []
-        for i, cf in enumerate(cfgs):
-            for j, st in enumerate([x for x in stats if x in set(d[d.config == cf].stat)]):
-                labels.append((i, j, cf, st))
-        for m_i, m in enumerate(MODES):
-            xs, ys, lo, hi = [], [], [], []
-            for (i, j, cf, st) in labels:
-                row = d[(d.config == cf) & (d.stat == st)].iloc[0]
-                xs.append(i + (j - 2.5) * 0.13 + (m_i - 1) * 0.035)
-                ys.append(row[f"coverage_{m}"])
-                lo.append(row[f"coverage_{m}"] - row[f"coverage_{m}_lo"])
-                hi.append(row[f"coverage_{m}_hi"] - row[f"coverage_{m}"])
-            ax.errorbar(xs, ys, yerr=[lo, hi], fmt="o", ms=2, lw=0.5, color=COL[m], label=m)
-        ax.axhspan(crit["coverage_low"], crit["coverage_high"], color="0.9", zorder=0)
-        ax.axhline(0.95, color="0.4", lw=0.6)
-        ax.set_ylim(0.3, 1.02)
-        ax.set_ylabel(f"{c}\n{SEL[s]}\ncoverage")
-        ax.set_xticks(range(len(cfgs)))
-        ax.set_xticklabels(cfgs, rotation=45, ha="right")
-    axes[0, 0].legend(ncol=3, fontsize=6.5, frameon=False, loc="lower left")
-    fig.suptitle("Coverage of 95% intervals at R = 10 (grey band: 0.92–0.97; per configuration the six points\n"
-                 "are Π_S, Π_Q, Π_SQ, Π_E (XGBoost only), Π_γ, Π_Q+Π_γ; bars: Wilson 95% intervals)", fontsize=8, y=1.03)
-    f = os.path.join(out, "fig_coverage_R10.png")
-    fig.savefig(f)
-    plt.close(fig)
-    files.append(f)
-
-    # 3. RMSE and coverage against R at the base point
+    # 4. RMSE and pigeonhole coverage against R at the base point
     b = S[(S.config == "base") & S.stat.isin(stats)]
-    fig, axes = plt.subplots(2, len(combos), figsize=(1.6 * len(combos) + 1, 3.6), squeeze=False, sharey="row")
+    fig, axes = plt.subplots(2, len(combos), figsize=(7.2, 3.6), squeeze=False, sharey="row")
     for j, (c, s) in enumerate(combos):
         d = b[(b.clf == c) & (b.selector == s)]
-        for st in stats:
+        for k, st in enumerate(stats):
             dd = d[d.stat == st].sort_values("R")
             if c == "logistic" and st == "E":
                 continue
-            axes[0, j].plot(dd.R, dd.rmse, "o-", ms=2.5, lw=0.8, label=STAT_LABEL[st])
-            axes[1, j].plot(dd.R, dd.coverage_pigeonhole, "o-", ms=2.5, lw=0.8)
-        axes[0, j].set_xscale("log")
+            axes[0, j].plot(dd.R, dd.rmse, "o-", ms=2.8, lw=1.2, color=SLOTS[k], label=STAT_LABEL[st])
+            axes[1, j].plot(dd.R, dd.coverage_pigeonhole, "o-", ms=2.8, lw=1.2, color=SLOTS[k])
         axes[0, j].set_yscale("log")
-        axes[1, j].set_xscale("log")
-        axes[1, j].axhspan(crit["coverage_low"], crit["coverage_high"], color="0.9", zorder=0)
-        axes[0, j].set_title(f"{c}\n{SEL[s]}", fontsize=7)
-        axes[1, j].set_xlabel("R")
+        axes[1, j].axhspan(lo, hi, color="#e9e8e3", zorder=0, lw=0)
+        axes[1, j].set_ylim(0.6, 1.02)
+        axes[0, j].set_title(f"{c} {SEL[s]}", fontsize=7)
+        axes[1, j].set_xlabel("R (draws)")
         for ax in axes[:, j]:
+            ax.set_xscale("log")
             ax.set_xticks([5, 10, 20, 50])
             ax.set_xticklabels(["5", "10", "20", "50"])
-    axes[0, 0].set_ylabel("RMSE")
+            ax.minorticks_off()
+            ax.grid(axis="y", color=GRID, lw=0.4)
+    axes[0, 0].set_ylabel("RMSE (share)")
     axes[1, 0].set_ylabel("pigeonhole coverage")
-    axes[0, -1].legend(fontsize=6, frameon=False, loc="upper right")
-    fig.suptitle("Base configuration: RMSE and coverage against the number of draws R", fontsize=8)
+    h, l = axes[0, 0].get_legend_handles_labels()
+    if "Π_E" not in l:
+        for ax in axes[0]:
+            hh, ll = ax.get_legend_handles_labels()
+            if "Π_E" in ll:
+                h, l = hh, ll
+                break
+    fig.legend(h, l, ncol=6, frameon=False, loc="upper left", bbox_to_anchor=(0.0, 1.04), fontsize=6.5)
+    fig.suptitle("Base configuration: RMSE and coverage against the number of draws", x=0.0, ha="left", y=1.09,
+                 fontsize=8, fontweight="bold")
     f = os.path.join(out, "fig_R_base.png")
     fig.savefig(f)
     plt.close(fig)
     files.append(f)
 
-    # 4. Eq. 3 against its own truth and against Π_Q + Π_γ
-    e = S[(S.stat == "eq3") & (S.R == 10)].copy()
+    # 5. Eq. 3 against its own truth and against Pi_Q + Pi_gamma: dot plot
+    e = r10[r10.stat == "eq3"].copy()
     if len(e):
-        e = e.sort_values(["clf", "selector", "n", "p", "rho", "auc", "f"])
-        fig, ax = plt.subplots(figsize=(7.2, 2.4))
-        x = np.arange(len(e))
-        ax.bar(x - 0.2, e.eq3_minus_Qgamma_truth, 0.4, color="#9b59b6", label="truth of Eq. 3 − truth of Π_Q+Π_γ")
-        ax.bar(x + 0.2, e.bias, 0.4, color="#8c96a3", label="bias of Eq. 3 (R = 10) against its own truth")
-        ax.axhline(0, color="0.3", lw=0.6)
-        ax.set_xticks(x)
-        ax.set_xticklabels([f"{r.clf[:3]} {r.selector} {r.config}" for r in e.itertuples()], rotation=60,
-                           ha="right", fontsize=6)
-        ax.set_ylabel("difference (share)")
-        ax.legend(fontsize=6.5, frameon=False)
+        rows = _rows(e)
+        fig, ax = plt.subplots(figsize=(4.8, 0.15 * len(rows) + 1.0))
+        ax.axvspan(-bmax, bmax, color="#e9e8e3", zorder=0, lw=0)
+        ax.axvline(0, color="#c3c2b7", lw=0.6)
+        for i, (c, s, cf) in enumerate(rows):
+            r = e[(e.clf == c) & (e.selector == s) & (e.config == cf)].iloc[0]
+            ax.plot(r.eq3_minus_Qgamma_truth, i, "o", ms=3.4, color=SLOTS[6], mec=SURF, mew=.6)
+            ax.plot(r.bias, i, "D", ms=2.8, color=SLOTS[1], mec=SURF, mew=.6)
+        ax.set_yticks(range(len(rows)))
+        ax.set_yticklabels([f"{c}  {SEL[s]}  {cf}" for c, s, cf in rows], fontsize=6)
+        ax.set_ylim(len(rows) - .5, -.5)
+        ax.set_xlabel("difference (share scale)")
+        ax.grid(axis="x", color=GRID, lw=0.4)
+        hs = [plt.Line2D([], [], marker="o", ls="", ms=3.4, color=SLOTS[6], label="truth(Eq. 3) − truth(Π_Q+Π_γ)"),
+              plt.Line2D([], [], marker="D", ls="", ms=2.8, color=SLOTS[1], label="bias of Eq. 3 at R = 10")]
+        ax.legend(handles=hs, frameon=False, loc="upper left", bbox_to_anchor=(0, 1.0 + 0.9 / len(rows)), ncol=2,
+                  fontsize=6.5)
+        ax.set_title("Eq. 3 versus the crossed decomposition", loc="left", pad=16)
+        fig.text(0.0, -0.01, f"Grey band: ±{bmax}.", fontsize=6, color=INK2, va="top")
         f = os.path.join(out, "fig_eq3.png")
         fig.savefig(f)
         plt.close(fig)
         files.append(f)
 
-    # 5. runtime
-    fig, ax = plt.subplots(figsize=(4.2, 2.2))
-    rr = rt.copy()
-    rr["label"] = rr.clf + " " + rr.kind + " R=" + rr.R.astype(str)
-    ax.barh(rr.label, rr.mean_seconds, color="#2a78d6")
+    # 6. runtime
+    rr = rt.copy().sort_values(["clf", "kind", "R"])
+    rr["label"] = rr.clf + " · " + rr.kind + " · R=" + rr.R.astype(str)
+    fig, ax = plt.subplots(figsize=(4.6, 0.22 * len(rr) + 0.8))
+    y = np.arange(len(rr))
+    ax.barh(y, rr.mean_seconds, height=0.62, color=SLOTS[0])
+    for yi, v, n in zip(y, rr.mean_seconds, rr.units):
+        ax.text(v * 1.08, yi, f"{v:.1f} s  (n = {n})", va="center", fontsize=6, color=INK2)
+    ax.set_yticks(y)
+    ax.set_yticklabels(rr.label, fontsize=6.5)
+    ax.set_ylim(len(rr) - .5, -.5)
     ax.set_xscale("log")
-    ax.set_xlabel("mean wall seconds per unit (one core)")
+    ax.set_xlim(rr.mean_seconds.min() / 2, rr.mean_seconds.max() * 8)
+    ax.set_xlabel("mean wall seconds per unit, one core (log scale)")
+    ax.grid(axis="x", color=GRID, lw=0.4)
+    ax.set_axisbelow(True)
     f = os.path.join(out, "fig_runtime.png")
     fig.savefig(f)
     plt.close(fig)

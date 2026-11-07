@@ -12,3 +12,4 @@ figures/build/
 
 # stdout of local simulation workers
 runs_w*.out
+runs_pilot.out

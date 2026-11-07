@@ -163,3 +163,26 @@ validity of the interval at R = 10 is therefore not established by theory; it is
 - the disjoint-pair count;
 - equality of the vectorised bootstrap with the one-at-a-time computation;
 - pipeline controls: fixed panel (Q, SQ, γ ≈ 0), random panel (γ ≈ 0, Q > 0), XGBoost seed variance > 0.
+
+## 11. Post-hoc finding: multiplicity weights break an exact cancellation (added 8 Nov 2026, after E2)
+
+This section was written after the interim E2 results and is **not** part of the pre-registered plan. It
+explains a failure; it does not change the criterion, the interval or the verdict.
+
+With uniform draw weights, a pure panel effect z_rq = φ_q gives σ̂²_S = σ̂²_SQ = 0 exactly. Every ordered
+pair of distinct panels (q, q') receives the same weight, (R − 2) in D_row and (R − 2)(R − 3) in D_both, so
+both moments equal the same sample variance of φ and their difference is 0. The same holds for a pure sample
+effect in D_both − D_col. Under bootstrap multiplicities v the pair (q, q') receives weight
+v_q v_q' (W − v_q − v_q') in D_row and v_q v_q' [(W − v_q − v_q')² − Σ_{r ∉ {q, q'}} v_r²] in D_both
+(W = Σ v). The two weightings are no longer proportional, so the panel variance leaks into the replicates of
+σ̂²_S, σ̂²_SQ and γ̂ (and the sample variance into σ̂²_Q). The estimate itself is unaffected, but the bootstrap
+distribution is too wide. Check (`pmtrd/crossed/diagnostics.py`, `leak_demo`): for z_rq = φ_q with R = 10,
+the estimate of Π_S is 0 to machine precision, while its draws-bootstrap replicates have SD 0.064 and a 95%
+range of −0.120 to 0.134. At R = 50 the SD is 0.006. The effect therefore shrinks with R but dominates at
+R = 10. Π_Q + Π_γ = 1 − D_col / V_R contains no difference of D_both with another moment, which is why its
+pigeonhole coverage is close to nominal while the other shares over-cover.
+
+A candidate remedy, the delete-one-draw jackknife, keeps uniform weights on the remaining R − 1 draws and so
+preserves the cancellation (unit test: `tests/test_crossed_diagnostics.py`). Its validity has to be
+established in a separate, pre-registered run with fresh seeds; the exploratory checks are reported in
+`runs/crossed_sim/diagnostics_posthoc/`.
