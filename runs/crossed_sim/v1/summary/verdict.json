@@ -1,0 +1,47 @@
+{
+ "verdict": "NO-GO",
+ "cells": 5,
+ "passed": 0,
+ "failed": [
+  {
+   "config": "base",
+   "selector": "mw",
+   "clf": "logistic",
+   "stat": "Q",
+   "bias": -0.000473754192355601,
+   "coverage_pigeonhole": 1.0
+  },
+  {
+   "config": "base",
+   "selector": "mw",
+   "clf": "logistic",
+   "stat": "Q+gamma",
+   "bias": -0.005340640721915579,
+   "coverage_pigeonhole": 0.915
+  },
+  {
+   "config": "base",
+   "selector": "mw",
+   "clf": "logistic",
+   "stat": "S",
+   "bias": 0.008950219573434757,
+   "coverage_pigeonhole": 1.0
+  },
+  {
+   "config": "base",
+   "selector": "mw",
+   "clf": "logistic",
+   "stat": "SQ",
+   "bias": -0.0036095788515191525,
+   "coverage_pigeonhole": 1.0
+  },
+  {
+   "config": "base",
+   "selector": "mw",
+   "clf": "logistic",
+   "stat": "gamma",
+   "bias": -0.004866886529559963,
+   "coverage_pigeonhole": 1.0
+  }
+ ]
+}

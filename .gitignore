@@ -9,3 +9,6 @@ __pycache__/
 
 # re-drawn figures
 figures/build/
+
+# stdout of local simulation workers
+runs_w*.out
