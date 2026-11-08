@@ -1,0 +1,28 @@
+== E9 external run (queue F) 17:56:02
+member_r00 29 20 0.9282
+member_r01 26 22 0.8949
+member_r02 25 19 0.8296
+member_r03 29 23 0.9106
+member_r04 27 21 0.8944
+member_r05 28 23 0.9134
+member_r06 30 21 0.8208
+member_r07 25 17 0.813
+member_r08 28 23 0.888
+member_r09 28 22 0.8662
+member_r10 27 20 0.8972
+member_r11 25 18 0.8088
+member_r12 28 23 0.8986
+member_r13 30 22 0.8366
+member_r14 26 21 0.8667
+member_r15 24 18 0.9093
+== queue C stopped at its external step 18:25:50; external run continues in queue F
+member_r16 29 18 0.9315
+member_r17 26 17 0.8019
+member_r18 26 22 0.7769
+member_r19 27 18 0.8917
+member_r20 27 22 0.8574
+member_r21 26 22 0.888
+member_r22 24 18 0.9185
+member_r23 25 18 0.875
+member_r24 25 19 0.8523
+== queue F external done 18:49:06

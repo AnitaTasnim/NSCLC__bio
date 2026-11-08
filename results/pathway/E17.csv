@@ -1,0 +1,4 @@
+comparison,gene_median,set_median,median_diff,wilcoxon_stat,p
+"replication rate, sets - genes, m=27",1.0,1.0,0.0,0.0,
+"replication rate, sets - genes, m=50",1.0,1.0,0.0,0.0,0.15729920705028502
+"chance-corrected overlap (Kuncheva), pathway top-27 - A4",0.08254550880334229,0.5819850708953891,0.49179213281331147,0.0,1.2279185361336645e-05

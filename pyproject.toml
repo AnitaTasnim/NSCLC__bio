@@ -9,7 +9,7 @@ license = {text = "MIT"}
 pmtrd = "pmtrd.cli:main"
 
 [tool.setuptools]
-packages = ["pmtrd", "pmtrd.metrics", "pmtrd.experiments"]
+packages = ["pmtrd", "pmtrd.metrics", "pmtrd.experiments", "pmtrd.crossed"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

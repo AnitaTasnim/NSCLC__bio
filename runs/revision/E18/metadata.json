@@ -1,0 +1,27 @@
+{
+ "time": "2026-11-08 12:46:15",
+ "python": "3.13.17",
+ "platform": "Linux-6.18.44-fc-v310-x86_64-with-glibc2.39",
+ "cpu_count": 2,
+ "packages": {
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "pandas": "3.0.5",
+  "sklearn": "1.9.1",
+  "xgboost": "3.4.1",
+  "statsmodels": "0.15.0"
+ },
+ "experiment": "E18",
+ "thetas": [
+  0.3,
+  0.5,
+  0.7
+ ],
+ "primary": 0.5,
+ "saved_runs": {
+  "GSE89843": "runs/replicates/20261105T021622Z_f933d1c2",
+  "Gordon": "runs/generalisation/gordon_lung/replicates_generic/20261105T081127Z_53be0d9c",
+  "GSE68086": "runs/generalisation/gse68086_pancancer/replicates_generic/20261105T082557Z_91104506",
+  "Singh": "runs/generalisation/singh_prostate/replicates_generic/20261105T075820Z_d4d93e0f"
+ }
+}

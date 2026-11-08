@@ -214,7 +214,7 @@ def main(out):
                 M[f"VxRp{k}Psi"] = f3(r.share); M[f"VxRp{k}PsiCI"] = f"{f3(r.lo)}--{f3(r.hi)}"
         order = ["six_stage", "mw_topk", "l1_topk", "stability", "mrmr_ifs_svm", "random", "fixed"]
         rows = [r"\begin{tabular}{lcccccccc}", r"\toprule",
-                r"Selector & $\hat\Phi$ (95\% CI) & Jaccard & Held-out AUC & AUC SD & Bagged AUC & Spearman $\rho$ & Ambiguity & $\psi$ (95\% CI) \\",
+                r"Selector & $\hat\Phi$ (95\% CI) & Jaccard & Held-out AUC & AUC SD & Bagged AUC & Spearman $\rho$ & Ambiguity, $R=10$ & $\psi$ (patient-bootstrap interval) \\",
                 r"\midrule"]
         for m in order:
             r = T[T.method == m]
@@ -644,7 +644,7 @@ def generalisation(out, M, missing):
     nice = {"six_stage": "Six-stage", "mw_topk": "Mann--Whitney", "l1_topk": "L1-logistic", "stability": "Stability sel.",
             "mrmr_ifs_svm": "mRMR--IFS--SVM", "random": "Random", "fixed": "Panel fixed"}
     lines = [r"\begin{tabular}{@{}p{2mm}lcccccc@{}}", r"\toprule",
-             r" & Selector & $\hat\Phi$ & $\psi$ (95\% CI) & Held-out AUC & Bagged AUC & Gain (pp) & Ambiguity \\", r"\midrule"]
+             r" & Selector & $\hat\Phi$ & $\psi$ (patient-bootstrap interval) & Held-out AUC & Bagged AUC & Gain (pp) & Ambiguity, $R=10$ \\", r"\midrule"]
     first = True
     for ds in [x[0] for x in GEN]:
         g = G[G.dataset == ds]

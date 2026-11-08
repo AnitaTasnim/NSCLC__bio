@@ -124,3 +124,44 @@ experiment verifies them before it starts. Subsample r of fold k uses seed 42*10
 use seeds 10,000 + 100k + r (replicates) and 20,000 + 100r + k (benchmark). Experiments that re-use the
 paper's panels check that they reproduce them exactly (for example, the internal-calibration experiment
 re-creates the paper's four-term out-of-fold predictions and stops if any differs by more than 1e-6).
+
+## Crossed pick-freeze estimator (methods development, not yet applied to the NSCLC data)
+
+New, separate code; nothing in `engine/`, `original/`, `pmtrd/experiments/` or `runs/` (other than
+`runs/crossed_sim/`) was changed.
+
+| Path | Content |
+| --- | --- |
+| `pmtrd/crossed/estimator.py` | Moments D_col, D_row, D_both, D_seed, V_R; components; Eq. 3; pigeonhole, draws and patients bootstraps |
+| `pmtrd/crossed/synthetic.py` | Analytic models with known components (test suite) |
+| `pmtrd/crossed/simulate.py` | Block-correlated Gaussian generator, selectors, classifiers, crossed designs, resumable runner |
+| `pmtrd/crossed/report.py` | Summary tables, pre-registered criterion check, figures (reads saved outputs only) |
+| `configs/crossed_sim.json` | Simulation design (fixed before any run) |
+| `docs/crossed_estimator_derivation.md` | Derivation and validation (Stage 0) |
+| `docs/crossed_simulation.md` | Pre-registered analysis plan for E1–E4 |
+| `tests/test_crossed_estimator.py`, `tests/test_crossed_pipeline.py` | 22 tests |
+| `pmtrd/crossed/diagnostics.py`, `tests/test_crossed_diagnostics.py` | POST-HOC interval diagnostic and candidate jackknife interval (3 tests); not part of the pre-registered verdict |
+
+Exact commands (CPU; set `"device": "cuda"` for XGBoost in the config to use a GPU):
+
+```bash
+python -m pytest tests/test_crossed_estimator.py tests/test_crossed_pipeline.py -q
+# two workers in parallel; each can be stopped and restarted (finished units are skipped)
+OMP_NUM_THREADS=1 python -m pmtrd.crossed.simulate --config configs/crossed_sim.json --out runs/crossed_sim/v1 --worker 0 --workers 2 &
+OMP_NUM_THREADS=1 python -m pmtrd.crossed.simulate --config configs/crossed_sim.json --out runs/crossed_sim/v1 --worker 1 --workers 2 &
+wait
+python -m pmtrd.crossed.report --run runs/crossed_sim/v1     # writes runs/crossed_sim/v1/summary/
+# post hoc (written after the results were seen): analytic diagnostic, then the fresh-seed pipeline pilot
+python -m pmtrd.crossed.diagnostics --out runs/crossed_sim/diagnostics_posthoc
+python -m pmtrd.crossed.diagnostics --pilot logistic --n-T 4 --n-rep 25
+python -c "from pmtrd.crossed.diagnostics import pilot_figure; pilot_figure('runs/crossed_sim/diagnostics_posthoc/pilot_logistic')"
+```
+
+Result of the pre-registered run (8 Nov 2026): **NO-GO** (`runs/crossed_sim/v1/summary/verdict.json`).
+The share estimators met the bias criterion in 166 of 168 counted cells, but the pigeonhole interval met
+the coverage criterion in only 34 of 168 (Pi_S in none).
+
+Outputs: `runs/crossed_sim/v1/units/*.json` (one file per truth or replicate; raw estimates, intervals,
+runtime), `panels/*.npz` (selected panels, reused across classifiers), `metadata.json` (configuration hash,
+package versions, CPU), `log_worker*.txt`, and `summary/` (truth.csv, replicates_raw.csv, summary.csv,
+criterion_cells.csv, runtime.csv, verdict.json, figures).
