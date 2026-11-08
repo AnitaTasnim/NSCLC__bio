@@ -131,6 +131,11 @@ external test. The four data sets of E16, E18 and E19 are those of the saved rep
 - Nested A4 on the paper's folds for seeds 1–5 (environment E-A).
 - Metrics: Jaccard of each panel with P27 (the historical panel) and between runs; panel sizes; identical
   panels across environments for the same seed; nested AUC over the 5 seeds. Descriptive.
+- Amendment (8 Nov 2026, before E15 was run): in the code, A4's `seed` argument sets only the Stage-2 CV split;
+  Stage-5 resample b always uses RandomState(b). A "seed" in E15 therefore sets both: Stage-2 seed s and
+  Stage-5 resample b drawn with RandomState(1000 s + b). This is done by wrapping the resampling function in
+  the E15 module; the engine file is not edited. Seed 0 with offset 0 is the paper's setting and is run as a
+  reference in both environments.
 - Output: `runs/seeds/E15.csv`.
 
 ## E17 — pathway circularity (Vumc)
