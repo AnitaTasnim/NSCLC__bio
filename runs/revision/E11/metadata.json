@@ -1,0 +1,15 @@
+{
+ "time": "2026-11-08 14:35:02",
+ "python": "3.13.17",
+ "platform": "Linux-6.18.44-fc-v310-x86_64-with-glibc2.39",
+ "cpu_count": 2,
+ "packages": {
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "pandas": "3.0.5",
+  "sklearn": "1.9.1",
+  "xgboost": "3.4.1",
+  "statsmodels": "0.15.0"
+ },
+ "experiment": "E11"
+}

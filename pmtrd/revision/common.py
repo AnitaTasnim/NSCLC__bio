@@ -53,7 +53,7 @@ def out_dir(*p: str) -> str:
     return d
 
 
-def write_meta(d: str, **extra) -> None:
+def write_meta(d: str, name: str = "metadata.json", **extra) -> None:
     import importlib
     vers = {}
     for m in ("numpy", "scipy", "pandas", "sklearn", "xgboost", "statsmodels"):
@@ -63,7 +63,7 @@ def write_meta(d: str, **extra) -> None:
             vers[m] = None
     json.dump({"time": time.strftime("%Y-%m-%d %H:%M:%S"), "python": platform.python_version(),
                "platform": platform.platform(), "cpu_count": os.cpu_count(), "packages": vers, **extra},
-              open(os.path.join(d, "metadata.json"), "w"), indent=1, default=str)
+              open(os.path.join(d, name), "w"), indent=1, default=str)
 
 
 def read_wide_parquet(p: str, chunk: int = 2000) -> "pd.DataFrame":

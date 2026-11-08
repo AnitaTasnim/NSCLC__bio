@@ -176,4 +176,13 @@ external test. The four data sets of E16, E18 and E19 are those of the saved rep
   1/J + n_test/n_train.
 - External: an ensemble of 25 A4 selections on stratified 80% subsamples of all 633 samples, applied to the 94
   GSE68086 samples (log2-CPM, no alignment); paired bootstrap against the locked 27-gene model.
+- Amendment (8 Nov 2026, before the external part was run; the plan left these details open): subsample
+  r (r = 0–24) of the 633 samples is drawn with the paper's scheme at a fold index outside 0–4,
+  rng(42·1000 + 100·9 + r), f = 0.8, stratified. Each member's genes are selected by A4 on its subsample
+  (all discovery genes, as in the paper); selected genes absent from the shared log2-CPM matrix of the
+  external analysis are dropped from that member (counted and reported). Each member's classifier is trained
+  on its subsample on that log2-CPM matrix, as the locked model is; the ensemble score is the mean of the 25
+  member probabilities. Reported: ensemble AUC (stratified bootstrap CI), the mean member AUC, the gain
+  (ensemble − mean member, paired bootstrap CI), calibration, and the pre-registered paired bootstrap of
+  ensemble − locked 27-gene model (2,000 resamples, seed 9).
 - Output: `runs/bagging/E9_*.csv`.
