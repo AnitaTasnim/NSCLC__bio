@@ -15,3 +15,4 @@ runs_w*.out
 runs_pilot.out
 data/external/*.RData
 data/external/*.gz
+runs_e*.out

@@ -104,6 +104,12 @@ external test. The four data sets of E16, E18 and E19 are those of the saved rep
   slope, Brier score; paired bootstrap of the AUC difference for (b) − (a1), (c) − (a1) and (a2) − (a1).
 - Check: (a1) must reproduce the published external AUC of the 27-gene model; if it does not, that is reported
   first.
+- Amendment (8 Nov 2026, before E10 was run): the plan defined "measurable" as non-zero in at least 10% of the
+  external samples but also called model (b) the 18-gene model. The paper's 18 genes are those with any read in
+  GSE68086; under the 10% rule USP27X and NTNG2 (reads in at most three samples) drop out. Model (b) therefore
+  uses the paper's 18 genes (any read), so that it tests the published claim, and (b') re-trains on the
+  panel genes measurable under the 10% rule as a sensitivity analysis. Models (a2) and (c) and the null use
+  the 10% rule as planned; the null panels have the size of (b).
 - Output: `runs/external/E10.csv`.
 
 ## E11 — normalisation (GSE89843)
