@@ -81,3 +81,33 @@ def read_wide_parquet(p: str, chunk: int = 2000) -> "pd.DataFrame":
         for j, c in enumerate(t.columns):
             out[:, a + j] = c.to_numpy(zero_copy_only=False)
     return pd.DataFrame(out, index=index, columns=cols)
+
+
+def export_cache(cache_dir: str, out_path: str) -> int:
+    """Raw unit outputs of a resumable cache (one pickle per unit) written as JSON lines, so that the raw
+    results are kept in a readable, version-controlled form (arrays become lists)."""
+    import gzip
+    import pickle
+
+    def conv(v):
+        if isinstance(v, np.ndarray):
+            return v.tolist()
+        if isinstance(v, (np.integer,)):
+            return int(v)
+        if isinstance(v, (np.floating,)):
+            return float(v)
+        if isinstance(v, dict):
+            return {str(k): conv(x) for k, x in v.items()}
+        if isinstance(v, (list, tuple)):
+            return [conv(x) for x in v]
+        return v
+
+    n = 0
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    with gzip.open(out_path, "wt") as fh:
+        for f in sorted(os.listdir(cache_dir)):
+            if f.endswith(".pkl"):
+                u = pickle.load(open(os.path.join(cache_dir, f), "rb"))
+                fh.write(json.dumps({"unit": f[:-4], **conv(u if isinstance(u, dict) else {"value": u})}) + "\n")
+                n += 1
+    return n
