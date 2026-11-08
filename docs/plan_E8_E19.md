@@ -122,6 +122,13 @@ external test. The four data sets of E16, E18 and E19 are those of the saved rep
   of the paper (R = 10, f = 0.8, same subsample seeds) for Φ and ψ (fixed arm: the scale's own A4 fold panel).
 - No scale is chosen by AUC; all three are reported side by side. Paired DeLong (descriptive) of (b) and (c)
   against (a).
+- Amendment (8 Nov 2026, before E11 was run): Stage 1 of A4 computes log2 fold changes from the group means of
+  its input and filters at |log2FC| > 0.5. Fed log-scale values, that filter would compare ratios of mean
+  logarithms and remove almost every gene. Scales (b) and (c) are therefore given to A4 and to the classifier
+  as CPM and TMM-CPM on the linear scale, i.e. per-sample library-size normalisation without the log. The
+  Mann-Whitney test of Stage 1 and the tree classifier are unaffected by the log transform; the LASSO and
+  elastic-net stages see linear normalised values, as they see linear counts in scale (a). The TMM reference
+  sample and factors are computed on each outer training fold and applied unchanged to its held-out fold.
 - Output: `runs/revision/E11/`.
 
 ## E15 — selection reproducibility (GSE89843)
