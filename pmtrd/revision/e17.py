@@ -23,6 +23,17 @@ MS = (27, 50)
 LIBS = ["data/inputs/genesets/MSigDB_Hallmark_v7.5.1.gmt", "data/inputs/genesets/Reactome_MSigDB_v7.5.1.gmt"]
 
 
+def external_genes() -> set:
+    """Gene columns of the GSE68086 count table, read from the parquet schema only (the universe needs only
+    the names; reading the whole table ran out of memory beside the concurrent E9 job). Same universe as
+    pd.read_parquet(...).columns, without the index column."""
+    import json
+    import pyarrow.parquet as pq
+    sch = pq.read_schema(resolve("data/inputs/gse68086/GSE68086_counts_symbols.parquet"))
+    idx = set(json.loads(sch.metadata[b"pandas"])["index_columns"]) if b"pandas" in (sch.metadata or {}) else set()
+    return set(sch.names) - {i for i in idx if isinstance(i, str)}
+
+
 def half_split(idx: np.ndarray, y: np.ndarray, seed: int):
     rng = np.random.default_rng(seed)
     a = []
@@ -58,8 +69,7 @@ def run() -> None:
     data = load_discovery(2)
     X, y, er, site = data.X, data.y, data.run, data.site.values
     vumc = np.flatnonzero(site == er.cfg["vumc_site"])
-    Xe = pd.read_parquet(resolve("data/inputs/gse68086/GSE68086_counts_symbols.parquet"))
-    universe = sorted(set(X.columns) & set(Xe.columns) - {"__sym"})
+    universe = sorted(set(X.columns) & external_genes() - {"__sym"})
     sets = filter_sets(load_gmt([resolve(q) for q in LIBS]), universe, 15, 500)
     S = set_scores(X[universe], sets)
     Lg = er.logX(X)[universe]                     # log2-CPM (CPM over all genes of the sample)
@@ -82,8 +92,7 @@ def run() -> None:
 def summarise() -> None:
     cache = Cache(path("results", "pathway", "cache_E17"))
     X, y, er, _ = load_dataset("GSE89843", 2)
-    Xe = pd.read_parquet(resolve("data/inputs/gse68086/GSE68086_counts_symbols.parquet"))
-    universe = sorted(set(X.columns) & set(Xe.columns) - {"__sym"})
+    universe = sorted(set(X.columns) & external_genes() - {"__sym"})
     n_sets = len(filter_sets(load_gmt([resolve(q) for q in LIBS]), universe, 15, 500))
     rows = []
     for s in range(1, NSPLIT + 1):
