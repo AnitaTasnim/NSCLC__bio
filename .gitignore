@@ -16,3 +16,7 @@ runs_pilot.out
 data/external/*.RData
 data/external/*.gz
 runs_e*.out
+runs/bagging/cache/
+runs/seeds/cache/
+runs/revision/*/cache/
+results/pathway/cache_E17/
