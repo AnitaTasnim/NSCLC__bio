@@ -71,7 +71,8 @@ def main() -> None:
     out["holm_changes_conclusion"] = out["significant_raw_0.05"] != out["significant_holm_0.05"]
     # Most conservative sensitivity analysis: Holm over every distinct test of every experiment at once
     # (a test listed in two families of the same experiment, e.g. E10 with and without b', counts once).
-    key = out.family.str.split().str[0] + ":" + out.test
+    same = {"E10 paired bootstrap incl. sensitivity model b'": "E10 paired bootstrap vs locked model (planned)"}
+    key = out.family.replace(same) + ":" + out.test
     uniq = out.assign(key=key).dropna(subset=["p_raw"]).drop_duplicates("key")
     allp = pd.Series(multipletests(uniq.p_raw.values, method="holm")[1], index=uniq.key.values)
     out["p_holm_all_tests"] = key.map(allp)
