@@ -33,9 +33,12 @@ external test. The four data sets of E16, E18 and E19 are those of the saved rep
   4. ensemble disagreement: the 10 replicates split into two disjoint ensembles of 5 (mean score, mean
      threshold); fraction of samples labelled differently, averaged over all 126 splits.
 - Baseline: the published ambiguity at R = 10.
-- Interval: pigeonhole bootstrap (B = 1,000, seed 19) for D, D_c and A(10): patients resampled within folds,
-  replicate indices resampled with multiplicity weights, pairs formed only between distinct replicates.
-  Ensemble disagreement and A(m) curves: descriptive.
+- Interval: pigeonhole bootstrap (B = 1,000, seed 19) for D, D_c and the threshold share: patients resampled
+  within folds, replicate indices resampled within folds with multiplicity weights, pairs formed only between
+  distinct replicates. Ensemble disagreement and A(m) curves: descriptive.
+- Amendment (8 Nov 2026, before E19 was run): A(10) gets a patients-only interval. Resampling replicates
+  would leave about 6.5 distinct replicates per resample, and ambiguity depends on that number, which is the
+  point of E19.
 - Output: `runs/export/E19.csv` (copy) and `runs/revision/E19/`.
 
 ## E18 — correlation-aware stability (saved panels plus expression)
