@@ -1,0 +1,60 @@
+== E17 run 16:07:52
+=== run started 2026-11-08 16:07:55 ===
+discovery: 633 samples x 27949 genes; NSCLC=402, healthy=231
+  statistics use CPM-normalised counts
+split01 27 27
+split02 27 24
+split03 28 23
+split04 27 27
+split05 26 28
+split06 27 29
+split07 26 28
+split08 28 29
+split09 27 23
+split10 29 26
+split11 28 26
+split12 26 27
+split13 24 27
+split14 28 26
+split15 24 27
+split16 22 26
+split17 24 25
+split18 26 27
+split19 29 27
+split20 27 26
+split21 26 27
+split22 27 25
+split23 24 27
+split24 27 25
+split25 25 27
+== E17 summarise 16:20:39
+=== run started 2026-11-08 16:20:41 ===
+discovery: 633 samples x 27949 genes; NSCLC=402, healthy=231
+== E15 full B 16:20:42
+=== run started 2026-11-08 16:20:44 ===
+discovery: 633 samples x 27949 genes; NSCLC=402, healthy=231
+full_envB_seed00 26 249
+full_envB_seed01 27 268
+full_envB_seed02 27 239
+full_envB_seed03 27 258
+full_envB_seed04 27 258
+full_envB_seed05 26 246
+full_envB_seed06 26 267
+full_envB_seed07 26 247
+full_envB_seed08 26 313
+full_envB_seed09 25 312
+full_envB_seed10 26 244
+full_envB_seed11 27 247
+full_envB_seed12 26 253
+full_envB_seed13 26 284
+full_envB_seed14 26 282
+full_envB_seed15 26 313
+full_envB_seed16 26 273
+full_envB_seed17 26 229
+full_envB_seed18 26 233
+full_envB_seed19 27 273
+full_envB_seed20 27 262
+== E15 summarise 17:53:14
+=== run started 2026-11-08 17:53:17 ===
+discovery: 633 samples x 27949 genes; NSCLC=402, healthy=231
+== queue E done 17:53:17

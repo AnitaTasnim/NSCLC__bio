@@ -1,0 +1,40 @@
+== E15 full A (resume) 14:47:37
+=== run started 2026-11-08 14:47:39 ===
+discovery: 633 samples x 27949 genes; NSCLC=402, healthy=231
+full_envA_seed17 26 234
+full_envA_seed18 26 228
+full_envA_seed19 27 266
+full_envA_seed20 27 260
+== E15 nested 15:04:08
+=== run started 2026-11-08 15:04:10 ===
+discovery: 633 samples x 27949 genes; NSCLC=402, healthy=231
+nested_seed01_f0 25 0.934
+nested_seed01_f1 27 0.924
+nested_seed01_f2 28 0.904
+nested_seed01_f3 29 0.947
+nested_seed01_f4 23 0.894
+nested_seed02_f0 25 0.936
+nested_seed02_f1 27 0.931
+nested_seed02_f2 27 0.942
+nested_seed02_f3 29 0.95
+nested_seed02_f4 22 0.897
+nested_seed03_f0 27 0.952
+nested_seed03_f1 27 0.932
+nested_seed03_f2 28 0.912
+nested_seed03_f3 29 0.935
+nested_seed03_f4 23 0.893
+nested_seed04_f0 27 0.951
+nested_seed04_f1 27 0.921
+nested_seed04_f2 28 0.915
+nested_seed04_f3 29 0.948
+nested_seed04_f4 25 0.904
+nested_seed05_f0 26 0.949
+nested_seed05_f1 26 0.931
+nested_seed05_f2 28 0.922
+nested_seed05_f3 29 0.945
+nested_seed05_f4 23 0.871
+== E17 run 16:06:58
+=== run started 2026-11-08 16:07:01 ===
+discovery: 633 samples x 27949 genes; NSCLC=402, healthy=231
+/tmp/claude-0/-home-claude/7edf6f71-c1c6-5286-99a3-ed4360b03a3d/scratchpad/queueD.sh: line 7:  3845 Killed                  OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m pmtrd.revision.e17 run
+E17 failed 137

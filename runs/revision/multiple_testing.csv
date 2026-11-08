@@ -1,0 +1,41 @@
+family,planned_correction,test,p_raw,p_holm_within_family,p_holm_reported,significant_raw_0.05,significant_holm_0.05,holm_changes_conclusion,p_holm_all_tests,n_tests_all,significant_holm_all_0.05
+E8 primary comparisons (paired DeLong),Holm over 5 (pre-specified),mrmr@27/xgb,5.1871209003666105e-05,0.0002593560450183305,0.0002593560450183,True,True,False,0.0016499175041247937,36,True
+E8 primary comparisons (paired DeLong),Holm over 5 (pre-specified),mrmr@own/svm,0.0011892201680011,0.0047568806720044,0.0047568806720045,True,True,False,0.0321089445360297,36,True
+E8 primary comparisons (paired DeLong),Holm over 5 (pre-specified),stability@27/xgb,0.0069346896898773,0.0208040690696319,0.0208040690696319,True,True,False,0.1317591041076687,36,False
+E8 primary comparisons (paired DeLong),Holm over 5 (pre-specified),l1_topk@27/xgb,0.0598880087597603,0.1197760175195206,0.1197760175195207,False,False,False,0.9582081401561648,36,False
+E8 primary comparisons (paired DeLong),Holm over 5 (pre-specified),mw_topk@27/xgb,0.794292163359302,0.794292163359302,0.794292163359302,False,False,False,1.0,36,False
+E10 paired bootstrap vs locked model (planned),none specified,a2_locked27_median_imputed,0.455,0.91,,False,False,False,1.0,36,False
+E10 paired bootstrap vs locked model (planned),none specified,b_retrained18_anyread,0.758,0.91,,False,False,False,1.0,36,False
+E10 paired bootstrap vs locked model (planned),none specified,c_A4_measurable,0.129,0.387,,False,False,False,1.0,36,False
+E10 paired bootstrap incl. sensitivity model b',none specified,a2_locked27_median_imputed,0.455,0.91,,False,False,False,1.0,36,False
+E10 paired bootstrap incl. sensitivity model b',none specified,b_retrained18_anyread,0.758,0.91,,False,False,False,1.0,36,False
+E10 paired bootstrap incl. sensitivity model b',none specified,c_A4_measurable,0.129,0.387,,False,False,False,1.0,36,False
+E10 paired bootstrap incl. sensitivity model b',none specified,b2_retrained_measurable10pct,0.036,0.144,,True,False,True,0.6479999999999999,36,False
+E10 random-panel null (empirical p),none specified,b_retrained18_anyread,0.3786213786213786,0.3786213786213786,,False,False,False,1.0,36,False
+E10 random-panel null (empirical p),none specified,c_A4_measurable,0.1858141858141858,0.3716283716283716,,False,False,False,1.0,36,False
+E11 paired DeLong vs counts,none (descriptive by plan),cpm,0.8121383849565466,0.8121383849565466,,False,False,False,1.0,36,False
+E11 paired DeLong vs counts,none (descriptive by plan),tmm,0.0039836638294931,0.0079673276589862,,True,True,False,0.0836569404193551,36,False
+E16 stratified permutation (exploratory),none specified,psi,4.999750012499375e-05,0.000199990000499975,,True,True,False,0.0016499175041247937,36,True
+E16 stratified permutation (exploratory),none specified,V_R,4.999750012499375e-05,0.000199990000499975,,True,True,False,0.0016499175041247937,36,True
+E16 stratified permutation (exploratory),none specified,phi,0.0019499025048747,0.0024998750062496,,True,True,False,0.0467976601169928,36,True
+E16 stratified permutation (exploratory),none specified,phi_C,0.0012499375031248,0.0024998750062496,,True,True,False,0.0324983750812448,36,True
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,GSE68086:gain10,0.0013289640541204,0.0146186045953244,,True,True,False,0.03322410135301,36,True
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,GSE68086:gain25,0.000347936424807,0.004871109947298,,True,True,False,0.010438092744209999,36,True
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,GSE68086:bag10_minus_frozen,0.0041539911542977,0.0373859203886793,,True,True,False,0.0836569404193551,36,False
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,GSE68086:bag25_minus_frozen,0.0022042101933463,0.022042101933463003,,True,True,False,0.0484926242536186,36,True
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,GSE89843:gain10,4.4879862101740034e-05,0.0006731979315261006,,True,True,False,0.001525915311459161,36,True
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,GSE89843:gain25,8.597121409375933e-06,0.00013755394255001493,,True,True,False,0.0003094963707375336,36,True
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,GSE89843:bag10_minus_frozen,0.0009466553865233,0.0123065200248029,,True,True,False,0.0274530062091757,36,True
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,GSE89843:bag25_minus_frozen,0.0010198514658942,0.0123065200248029,,True,True,False,0.028555841045037597,36,True
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,Gordon:gain10,0.3378610506471831,1.0,,False,False,False,1.0,36,False
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,Gordon:gain25,0.3411449002325991,1.0,,False,False,False,1.0,36,False
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,Gordon:bag10_minus_frozen,0.6059356237095153,1.0,,False,False,False,1.0,36,False
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,Gordon:bag25_minus_frozen,0.4449606772495135,1.0,,False,False,False,1.0,36,False
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,Singh:gain10,0.0452642664945721,0.3621141319565768,,True,False,True,0.7694925304077258,36,False
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,Singh:gain25,0.125645529852531,0.879518708967717,,False,False,False,1.0,36,False
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,Singh:bag10_minus_frozen,0.473567204660222,1.0,,False,False,False,1.0,36,False
+E9 corrected resampled t-tests (4 data sets x 4 quantities),none specified,Singh:bag25_minus_frozen,0.4420408758064648,1.0,,False,False,False,1.0,36,False
+E9 external paired bootstrap vs locked,none (single test),ensemble25 - locked,0.002,0.002,,True,True,False,0.0467976601169928,36,True
+E17 Wilcoxon signed-rank over splits,none specified,"replication rate, sets - genes, m=27",,,,False,False,False,,36,False
+E17 Wilcoxon signed-rank over splits,none specified,"replication rate, sets - genes, m=50",0.157299207050285,0.157299207050285,,False,False,False,1.0,36,False
+E17 Wilcoxon signed-rank over splits,none specified,"chance-corrected overlap (Kuncheva), pathway top-27 - A4",1.2279185361336644e-05,2.4558370722673288e-05,,True,True,False,0.0004297714876467825,36,True

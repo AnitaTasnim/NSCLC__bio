@@ -1,0 +1,36 @@
+== E10 12:47:06
+=== run started 2026-11-08 12:47:15 ===
+discovery: 633 samples x 27949 genes; NSCLC=402, healthy=231
+external: 94 samples; NSCLC=40
+/tmp/claude-0/-home-claude/7edf6f71-c1c6-5286-99a3-ed4360b03a3d/scratchpad/queueB.sh: line 4:   818 Killed                  OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 python3 -m pmtrd.revision.e10
+E10 failed 137
+== E8 12:47:19
+=== run started 2026-11-08 12:47:27 ===
+discovery: 633 samples x 27949 genes; NSCLC=402, healthy=231
+  statistics use CPM-normalised counts
+fold 1 kbest 31
+fold 2 kbest 34
+fold 3 kbest 31
+fold 4 kbest 142
+fold 5 kbest 42
+A4 reference check (max |diff|): 1.1102230246251565e-16
+== E15 full A 12:50:48
+=== run started 2026-11-08 12:50:54 ===
+discovery: 633 samples x 27949 genes; NSCLC=402, healthy=231
+full_envA_seed00 26 324
+full_envA_seed01 27 543
+full_envA_seed02 27 467
+full_envA_seed03 27 408
+full_envA_seed04 27 406
+full_envA_seed05 26 385
+full_envA_seed06 26 427
+full_envA_seed07 26 389
+full_envA_seed08 26 498
+full_envA_seed09 25 489
+full_envA_seed10 26 385
+full_envA_seed11 27 387
+full_envA_seed12 26 401
+full_envA_seed13 26 459
+full_envA_seed14 26 399
+full_envA_seed15 26 301
+full_envA_seed16 26 268
