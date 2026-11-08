@@ -1,8 +1,10 @@
 """Multiple-testing check across the revision experiments (E8-E19).
 
 For each family of hypothesis tests it lists the raw p-values, the correction the plan pre-specified (if any) and,
-as a labelled sensitivity analysis, Holm-adjusted p-values within the family. Nothing here changes a planned
-analysis; the planned (un)corrected p-values are reported alongside.
+as labelled sensitivity analyses, Holm-adjusted p-values within the family and over all distinct tests of all
+experiments at once. Nothing here changes a planned analysis; the planned (un)corrected p-values are reported
+alongside. The all-tests column was added after the within-family results of E8, E10, E11, E16 and E17 were seen
+(and before those of E9); it is a sensitivity analysis, not a planned correction.
 
 Run:  python -m pmtrd.revision.multiple_testing
 """
@@ -67,6 +69,14 @@ def main() -> None:
     out["significant_raw_0.05"] = out.p_raw < 0.05
     out["significant_holm_0.05"] = out.p_holm_within_family < 0.05
     out["holm_changes_conclusion"] = out["significant_raw_0.05"] != out["significant_holm_0.05"]
+    # Most conservative sensitivity analysis: Holm over every distinct test of every experiment at once
+    # (a test listed in two families of the same experiment, e.g. E10 with and without b', counts once).
+    key = out.family.str.split().str[0] + ":" + out.test
+    uniq = out.assign(key=key).dropna(subset=["p_raw"]).drop_duplicates("key")
+    allp = pd.Series(multipletests(uniq.p_raw.values, method="holm")[1], index=uniq.key.values)
+    out["p_holm_all_tests"] = key.map(allp)
+    out["n_tests_all"] = len(uniq)
+    out["significant_holm_all_0.05"] = out.p_holm_all_tests < 0.05
     out.to_csv(path("runs", "revision", "multiple_testing.csv"), index=False)
     print(out.to_string())
 
